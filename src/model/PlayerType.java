@@ -1,4 +1,3 @@
 package model;
 
-public enum PlayerType {
-}
+public enum PlayerType {OFFENSE, DEFENSE, ATHLETIC, BALANCED}

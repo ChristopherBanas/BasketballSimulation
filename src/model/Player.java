@@ -3,7 +3,14 @@ package model;
 public class Player {
 
     private String name;
-    private String age;
+    private int age;
     private PlayerType type;
     private Rating rating;
+
+    public Player(String name, int age, Rating rating){
+        this.name = name;
+        this.age = age;
+        this.rating = rating;
+        //TODO type generation using ratings stats
+    }
 }
