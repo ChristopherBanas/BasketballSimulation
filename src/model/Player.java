@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Desc: Class for player information
+ * Author: Christopher Banas
+ */
 public class Player {
 
     private String name;

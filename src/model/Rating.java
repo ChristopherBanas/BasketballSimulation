@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Desc: Class for player rating information
+ * Author: Christopher Banas
+ */
 public class Rating {
 
     /** Offense rating of a player */

@@ -2,6 +2,7 @@ package tests;
 
 import model.Rating;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +15,7 @@ class RatingTest {
         rating = new Rating(99,99,99);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void checkValue() {
         assertAll(() -> assertEquals(99, rating.checkValue(100)),
                 () -> assertEquals(99, rating.checkValue(500)),
@@ -24,13 +25,12 @@ class RatingTest {
                 () -> assertEquals(99, rating.checkValue(99)));
     }
 
-
-    @org.junit.jupiter.api.Test
+    @Test
     void getOffense() {
         assertEquals(99, rating.getOffense());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setOffense() {
         rating.setOffense(87);
         assertEquals(87, rating.getOffense());
@@ -38,12 +38,12 @@ class RatingTest {
         assertEquals(1, rating.getOffense());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getDefense() {
         assertEquals(99, rating.getDefense());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setDefense() {
         rating.setDefense(87);
         assertEquals(87, rating.getDefense());
@@ -56,7 +56,7 @@ class RatingTest {
         assertEquals(99, rating.getAthleticism());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setAthleticism() {
         rating.setAthleticism(87);
         assertEquals(87, rating.getAthleticism());
@@ -64,12 +64,12 @@ class RatingTest {
         assertEquals(1, rating.getAthleticism());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getOverall() {
         assertEquals(99, rating.getOverall());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void updateOverall() {
         rating.setOffense(90);
         rating.setDefense(80);

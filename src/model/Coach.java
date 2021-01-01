@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Desc: Class for coach information
+ * Author: Christopher Banas
+ */
 public class Coach {
 
     /** Name of coach */
@@ -20,7 +24,7 @@ public class Coach {
     }
 
     /**
-     * Constructor for Coach when team isn't known
+     * Constructor for Coach when team is known
      * @param name Name of coach
      * @param age Age of coach
      */
