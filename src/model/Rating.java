@@ -87,7 +87,7 @@ public class Rating {
 
     /**
      * Setter for athleticism
-     * @param athleticism New atheltic rating
+     * @param athleticism New athletic rating
      */
     public void setAthleticism(int athleticism) {
         athleticism = checkValue(athleticism);
