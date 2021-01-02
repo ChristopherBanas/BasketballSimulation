@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Desc: Class for player rating information
  * Author: Christopher Banas
@@ -111,5 +113,44 @@ public class Rating {
      */
     public void updateOverall() {
         this.overall = ((this.offense + this.defense + this.athleticism)/3);
+    }
+
+    /**
+     * Equals method for rating
+     * @param o Rating to be compared to
+     * @return If rating is the same or not
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rating rating = (Rating) o;
+        return offense == rating.offense &&
+                defense == rating.defense &&
+                athleticism == rating.athleticism &&
+                overall == rating.overall;
+    }
+
+    /**
+     * Hash method for Rating
+     * @return Hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(offense, defense, athleticism, overall);
+    }
+
+    /**
+     * Prints rating
+     * @return String of rating
+     */
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "offense=" + offense +
+                ", defense=" + defense +
+                ", athleticism=" + athleticism +
+                ", overall=" + overall +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Desc: Class for coach information
  * Author: Christopher Banas
@@ -93,5 +95,29 @@ public class Coach {
                 ", age=" + age +
                 ", team=" + team +
                 '}';
+    }
+
+    /**
+     * Equals method for coach
+     * @param o Coach to be compared to
+     * @return If coach is the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coach coach = (Coach) o;
+        return age == coach.age &&
+                Objects.equals(name, coach.name) &&
+                Objects.equals(team, coach.team);
+    }
+
+    /**
+     * Hash method for coach
+     * @return Hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, team);
     }
 }

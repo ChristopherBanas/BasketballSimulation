@@ -147,4 +147,27 @@ public class Team {
                 Objects.equals(roster, team.roster);
     }
 
+    /**
+     * Hash method for team
+     * @return Hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, wins, losses, coach, roster);
+    }
+
+    /**
+     * String method for team
+     * @return String of team
+     */
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + name + '\'' +
+                ", wins=" + wins +
+                ", losses=" + losses +
+                ", coach=" + coach +
+                ", roster=" + roster +
+                '}';
+    }
 }
