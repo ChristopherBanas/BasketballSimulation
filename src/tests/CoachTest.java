@@ -37,8 +37,8 @@ class CoachTest {
 
     @Test
     void setAge() {
-        coach.setAge(70);
-        assertEquals(70, coach.getAge());
+        coach.increaseAge();
+        assertEquals(66, coach.getAge());
     }
 
     @Test

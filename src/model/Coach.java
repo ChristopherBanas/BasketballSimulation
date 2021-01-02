@@ -61,11 +61,10 @@ public class Coach {
     }
 
     /**
-     * Setter for age
-     * @param age New age
+     * Increase a coach's age
      */
-    public void setAge(int age) {
-        this.age = age;
+    public void increaseAge() {
+        age = age + 1;
     }
 
     /**

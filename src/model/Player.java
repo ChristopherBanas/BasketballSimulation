@@ -17,6 +17,12 @@ public class Player {
     /** Type of player */
     private PlayerType type;
 
+    /**
+     * Constructor for Player
+     * @param name Name of player
+     * @param age Age of player
+     * @param rating Rating of player
+     */
     public Player(String name, int age, Rating rating){
         this.name = name;
         this.age = age;
@@ -24,6 +30,11 @@ public class Player {
         this.type = getType(rating);
     }
 
+    /**
+     * Generates a player's type based off of their ratings
+     * @param rating Player's ratings
+     * @return What PlayerType they are
+     */
     public PlayerType getType(Rating rating){
         int difference = rating.getOffense() - rating.getDefense();
         if(difference < -10){ //defense is higher than offense by 10+
@@ -35,43 +46,66 @@ public class Player {
         }
     }
 
+    /**
+     * Getter for name
+     * @return Player name
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    /**
+     * Getter for age
+     * @return Player age
+     */
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    /**
+     * Increase a player's age
+     */
+    public void increaseAge() {
+        age = age + 1;
     }
 
+    /**
+     * Getter for rating
+     * @return Player rating
+     */
     public Rating getRating() {
         return rating;
     }
 
+    /**
+     * Setter for rating
+     * @param rating New rating
+     */
     public void setRating(Rating rating) {
         this.rating = rating;
         updateType();
     }
 
+    /**
+     * Getter for type
+     * @return PlayerType
+     */
     public PlayerType getType() {
         return type;
     }
 
-    public void setType(PlayerType type) {
-        this.type = type;
-    }
-
+    /**
+     * Updates type
+     */
     public void updateType(){
         this.type = getType(this.rating);
     }
 
+    /**
+     * Equals method for player
+     * @param o Player to be compared to
+     * @return If player is the same
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,11 +117,19 @@ public class Player {
                 type == player.type;
     }
 
+    /**
+     * Hash method for player
+     * @return Hash code
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, age, rating, type);
     }
 
+    /**
+     * String method for player
+     * @return String of player
+     */
     @Override
     public String toString() {
         return "Player{" +

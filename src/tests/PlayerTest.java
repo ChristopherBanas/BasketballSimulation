@@ -27,4 +27,10 @@ class PlayerTest {
         player.setRating(new Rating(80,99,90));
         assertEquals(PlayerType.DEFENSE, player.getType());
     }
+
+    @Test
+    void increaseAge() {
+        player.increaseAge();
+        assertEquals(36, player.getAge());
+    }
 }

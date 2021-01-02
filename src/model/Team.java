@@ -72,7 +72,7 @@ public class Team {
      * Add a win
      */
     public void addWin() {
-        this.wins = this.wins++;
+        wins = wins + 1;
     }
 
     /**
@@ -87,7 +87,7 @@ public class Team {
      * Add a loss
      */
     public void addLoss() {
-        this.losses = this.losses++;
+        losses = losses + 1;
     }
 
     /**
