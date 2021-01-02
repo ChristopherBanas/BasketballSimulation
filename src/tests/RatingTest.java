@@ -51,7 +51,7 @@ class RatingTest {
         assertEquals(1, rating.getDefense());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getAthleticism() {
         assertEquals(99, rating.getAthleticism());
     }
