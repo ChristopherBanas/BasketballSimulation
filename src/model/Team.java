@@ -28,7 +28,7 @@ public class Team {
         this.name = name;
         this.wins = 0;
         this.losses = 0;
-        this.roster = new ArrayList<Player>();
+        this.roster = new ArrayList<>();
     }
 
     /**
@@ -41,7 +41,7 @@ public class Team {
         this.wins = 0;
         this.losses = 0;
         this.coach = coach;
-        this.roster = new ArrayList<Player>();
+        this.roster = new ArrayList<>();
     }
 
     /**

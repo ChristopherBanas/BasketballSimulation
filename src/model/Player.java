@@ -16,9 +16,11 @@ public class Player {
     private Rating rating;
     /** Type of player */
     private PlayerType type;
+    /** Team of player */
+    private Team team;
 
     /**
-     * Constructor for Player
+     * Constructor for Player when team isn't known
      * @param name Name of player
      * @param age Age of player
      * @param rating Rating of player
@@ -29,6 +31,21 @@ public class Player {
         this.rating = rating;
         this.type = getType(rating);
     }
+    /**
+     * Constructor for Player when team is known
+     * @param name Name of player
+     * @param age Age of player
+     * @param rating Rating of player
+     * @param team Team of player
+     */
+    public Player(String name, int age, Rating rating, Team team){
+        this.name = name;
+        this.age = age;
+        this.rating = rating;
+        this.type = getType(rating);
+        this.team = team;
+    }
+
 
     /**
      * Generates a player's type based off of their ratings
@@ -114,6 +131,7 @@ public class Player {
         return age == player.age &&
                 Objects.equals(name, player.name) &&
                 Objects.equals(rating, player.rating) &&
+                Objects.equals(team, player.team) &&
                 type == player.type;
     }
 
@@ -123,7 +141,7 @@ public class Player {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, rating, type);
+        return Objects.hash(name, age, rating, type, team);
     }
 
     /**
@@ -137,6 +155,23 @@ public class Player {
                 ", age=" + age +
                 ", rating=" + rating +
                 ", type=" + type +
+                ", team=" + team.getName() +
                 '}';
+    }
+
+    /**
+     * Getter for player team
+     * @return Team of player
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * Setter for player team
+     * @param team Team of player
+     */
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
