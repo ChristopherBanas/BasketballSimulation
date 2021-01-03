@@ -92,7 +92,7 @@ public class Coach {
         return "Coach{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", team=" + team +
+                ", team=" + team.getName() +
                 '}';
     }
 
