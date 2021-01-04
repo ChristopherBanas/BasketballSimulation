@@ -8,149 +8,139 @@ import java.util.Objects;
  */
 public class Rating {
 
-    /** Offense rating of a player */
-    private int offense;
-    /** Defensive rating of a player */
-    private int defense;
-    /** Athletic rating of a player */
-    private int athleticism;
-    /** Overall rating of a player */
-    private int overall;
+    private int outsideShotRating;
+    private int insideShotRating;
+    private int reboundRating;
+    private int insideDefenseRating;
+    private int outsideDefenseRating;
+    private int passingRating;
 
-    /**
-     * Constructor for Rating
-     * @param offense Offensive rating
-     * @param defense Defensive rating
-     * @param athleticism Athletic rating
-     */
-    public Rating(int offense, int defense, int athleticism){
-        offense = checkValue(offense);
-        defense = checkValue(defense);
-        athleticism = checkValue(athleticism);
-        this.offense = offense;
-        this.defense = defense;
-        this.athleticism = athleticism;
-        this.overall = ((offense + defense + athleticism)/3);
-    }
 
-    /**
-     * Makes sure the given value is within the bounds of 1-99
-     * @param value Value to be checked
-     * @return Corrected version of value if needed
-     */
-    public int checkValue(int value){
-        if(value > 99){
-            System.out.println("[MODEL-RATING] Value too high, reducing to 99");
-            value = value - (value - 99);
-        } else if(value <= 0){
-            System.out.println("[MODEL-RATING] Value too low, increasing to 1");
-            value = 1;
+    public Rating(PlayerType type){
+        switch (type) {
+            case SHARPSHOOTER -> {
+                this.outsideShotRating = generateRating(1);
+                this.insideShotRating = generateRating(6);
+                this.reboundRating = generateRating(4);
+                this.insideDefenseRating = generateRating(6);
+                this.outsideDefenseRating = generateRating(2);
+                this.passingRating = generateRating(3);
+            }
+            case PLAYMAKER -> {
+                this.outsideShotRating = generateRating(2);
+                this.insideShotRating = generateRating(4);
+                this.reboundRating = generateRating(6);
+                this.insideDefenseRating = generateRating(5);
+                this.outsideDefenseRating = generateRating(3);
+                this.passingRating = generateRating(1);
+            }
+            case REBOUNDER -> {
+                this.outsideShotRating = generateRating(5);
+                this.insideShotRating = generateRating(3);
+                this.reboundRating = generateRating(1);
+                this.insideDefenseRating = generateRating(2);
+                this.outsideDefenseRating = generateRating(5);
+                this.passingRating = generateRating(6);
+            }
+            case INSIDE_SCORER -> {
+                this.outsideShotRating = generateRating(4);
+                this.insideShotRating = generateRating(1);
+                this.reboundRating = generateRating(2);
+                this.insideDefenseRating = generateRating(4);
+                this.outsideDefenseRating = generateRating(6);
+                this.passingRating = generateRating(5);
+            }
+            case WELL_ROUNDED -> {
+                this.outsideShotRating = generateRating(3);
+                this.insideShotRating = generateRating(2);
+                this.reboundRating = generateRating(3);
+                this.insideDefenseRating = generateRating(3);
+                this.outsideDefenseRating = generateRating(4);
+                this.passingRating = generateRating(2);
+            }
+            case DEFENSIVE_MINDED -> {
+                this.outsideShotRating = generateRating(6);
+                this.insideShotRating = generateRating(5);
+                this.reboundRating = generateRating(4);
+                this.insideDefenseRating = generateRating(1);
+                this.outsideDefenseRating = generateRating(1);
+                this.passingRating = generateRating(4);
+            }
+            case GOD -> {
+                this.outsideShotRating = 90;
+                this.insideShotRating = 90;
+                this.reboundRating = 90;
+                this.insideDefenseRating = 90;
+                this.outsideDefenseRating = 90;
+                this.passingRating = 90;
+            }
         }
-        return value;
     }
 
-    /**
-     * Getter for offense
-     * @return Offensive rating
-     */
-    public int getOffense() {
-        return offense;
+    public int generateRating(int tier){
+        return switch (tier) {
+            case 1 -> (int) (Math.random() * (99 - 85 + 1) + 85);
+            case 2 -> (int) (Math.random() * (80 - 70 + 1) + 70);
+            case 3 -> (int) (Math.random() * (70 - 60 + 1) + 60);
+            case 4 -> (int) (Math.random() * (60 - 50 + 1) + 50);
+            case 5 -> (int) (Math.random() * (50 - 40 + 1) + 40);
+            case 6 -> (int) (Math.random() * (40 - 30 + 1) + 30);
+            default -> 5;
+        };
     }
 
-    /**
-     * Setter for offense
-     * @param offense New offensive value
-     */
-    public void setOffense(int offense) {
-        offense = checkValue(offense);
-        this.offense = offense;
+    public int getOutsideShotRating() {
+        return outsideShotRating;
     }
 
-    /**
-     * Getter for defense
-     * @return Defensive rating
-     */
-    public int getDefense() {
-        return defense;
+    public int getInsideShotRating() {
+        return insideShotRating;
     }
 
-    /**
-     * Setter for defense
-     * @param defense New defensive rating
-     */
-    public void setDefense(int defense) {
-        defense = checkValue(defense);
-        this.defense = defense;
+    public int getReboundRating() {
+        return reboundRating;
     }
 
-    /**
-     * Getter for athleticism
-     * @return Athletic rating
-     */
-    public int getAthleticism() {
-        return athleticism;
+    public int getInsideDefenseRating() {
+        return insideDefenseRating;
     }
 
-    /**
-     * Setter for athleticism
-     * @param athleticism New athletic rating
-     */
-    public void setAthleticism(int athleticism) {
-        athleticism = checkValue(athleticism);
-        this.athleticism = athleticism;
+    public int getOutsideDefenseRating() {
+        return outsideDefenseRating;
     }
 
-    /**
-     * Getter for overall rating
-     * @return Overall rating
-     */
-    public int getOverall() {
-        return overall;
+    public int getPassingRating() {
+        return passingRating;
     }
 
-    /**
-     * Update overall rating with current ratings
-     */
-    public void updateOverall() {
-        this.overall = ((this.offense + this.defense + this.athleticism)/3);
-    }
-
-    /**
-     * Equals method for rating
-     * @param o Rating to be compared to
-     * @return If rating is the same or not
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rating rating = (Rating) o;
-        return offense == rating.offense &&
-                defense == rating.defense &&
-                athleticism == rating.athleticism &&
-                overall == rating.overall;
+        return outsideShotRating == rating.outsideShotRating &&
+                insideShotRating == rating.insideShotRating &&
+                reboundRating == rating.reboundRating &&
+                insideDefenseRating == rating.insideDefenseRating &&
+                outsideDefenseRating == rating.outsideDefenseRating &&
+                passingRating == rating.passingRating;
     }
 
-    /**
-     * Hash method for Rating
-     * @return Hash code
-     */
     @Override
     public int hashCode() {
-        return Objects.hash(offense, defense, athleticism, overall);
+        return Objects.hash(outsideShotRating, insideShotRating, reboundRating,
+                insideDefenseRating, outsideDefenseRating, passingRating);
     }
 
-    /**
-     * Prints rating
-     * @return String of rating
-     */
     @Override
     public String toString() {
         return "Rating{" +
-                "offense=" + offense +
-                ", defense=" + defense +
-                ", athleticism=" + athleticism +
-                ", overall=" + overall +
+                "outsideShotRating=" + outsideShotRating +
+                ", insideShotRating=" + insideShotRating +
+                ", reboundRating=" + reboundRating +
+                ", insideDefenseRating=" + insideDefenseRating +
+                ", outsideDefenseRating=" + outsideDefenseRating +
+                ", passingRating=" + passingRating +
                 '}';
     }
 }

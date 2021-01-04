@@ -2,7 +2,6 @@ package tests;
 
 import model.Player;
 import model.PlayerType;
-import model.Rating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,18 +13,12 @@ class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        player = new Player("Lebron James", 35, new Rating(99, 85, 90));
+        player = new Player("Lebron James", 35, PlayerType.WELL_ROUNDED);
     }
 
     @Test
     void getType() {
-        assertEquals(PlayerType.OFFENSE, player.getType());
-    }
-
-    @Test
-    void updateType() {
-        player.setRating(new Rating(80,99,90));
-        assertEquals(PlayerType.DEFENSE, player.getType());
+        assertEquals(PlayerType.WELL_ROUNDED, player.getType());
     }
 
     @Test
@@ -33,4 +26,5 @@ class PlayerTest {
         player.increaseAge();
         assertEquals(36, player.getAge());
     }
+
 }

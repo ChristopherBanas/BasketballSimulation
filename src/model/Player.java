@@ -23,45 +23,29 @@ public class Player {
      * Constructor for Player when team isn't known
      * @param name Name of player
      * @param age Age of player
-     * @param rating Rating of player
+     * @param playerType Type of player
      */
-    public Player(String name, int age, Rating rating){
+    public Player(String name, int age, PlayerType playerType){
         this.name = name;
         this.age = age;
-        this.rating = rating;
-        this.type = getType(rating);
+        this.rating = new Rating(playerType);
+        this.type = playerType;
     }
     /**
      * Constructor for Player when team is known
      * @param name Name of player
      * @param age Age of player
-     * @param rating Rating of player
+     * @param playerType Type of player
      * @param team Team of player
      */
-    public Player(String name, int age, Rating rating, Team team){
+    public Player(String name, int age, PlayerType playerType, Team team){
         this.name = name;
         this.age = age;
-        this.rating = rating;
-        this.type = getType(rating);
+        this.rating = new Rating(playerType);
+        this.type = playerType;
         this.team = team;
     }
 
-
-    /**
-     * Generates a player's type based off of their ratings
-     * @param rating Player's ratings
-     * @return What PlayerType they are
-     */
-    public PlayerType getType(Rating rating){
-        int difference = rating.getOffense() - rating.getDefense();
-        if(difference < -10){ //defense is higher than offense by 10+
-            return PlayerType.DEFENSE;
-        } else if(difference > 10){ //offense is higher than defense by 10+
-            return PlayerType.OFFENSE;
-        } else{ //difference is between 10
-            return PlayerType.BALANCED;
-        }
-    }
 
     /**
      * Getter for name
@@ -94,14 +78,6 @@ public class Player {
         return rating;
     }
 
-    /**
-     * Setter for rating
-     * @param rating New rating
-     */
-    public void setRating(Rating rating) {
-        this.rating = rating;
-        updateType();
-    }
 
     /**
      * Getter for type
@@ -111,12 +87,6 @@ public class Player {
         return type;
     }
 
-    /**
-     * Updates type
-     */
-    public void updateType(){
-        this.type = getType(this.rating);
-    }
 
     /**
      * Equals method for player
@@ -150,12 +120,18 @@ public class Player {
      */
     @Override
     public String toString() {
+        String team;
+        if(this.team == null){
+            team = "None";
+        } else{
+            team = this.team.getName();
+        }
         return "Player{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", rating=" + rating +
                 ", type=" + type +
-                ", team=" + team.getName() +
+                ", team=" + team +
                 '}';
     }
 

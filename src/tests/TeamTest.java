@@ -1,9 +1,6 @@
 package tests;
 
-import model.Coach;
-import model.Player;
-import model.Rating;
-import model.Team;
+import model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +41,7 @@ class TeamTest {
 
     @Test
     void addPlayer() {
-        Player player = new Player("Lebron James", 35, new Rating(99,99,99));
+        Player player = new Player("Lebron James", 35, PlayerType.WELL_ROUNDED);
         team.addPlayer(player);
         assertAll(() -> assertEquals(1, team.getRoster().size()),
                 () -> assertEquals(player, team.getRoster().get(0)));
@@ -52,12 +49,13 @@ class TeamTest {
 
     @Test
     void removePlayer() {
-        Player player1 = new Player("Lebron James", 35, new Rating(99,99,99));
-        Player player2 = new Player("Lebron James2", 37, new Rating(99,99,99));
+        Player player1 = new Player("Lebron James", 35, PlayerType.WELL_ROUNDED);
+        Player player2 = new Player("Lebron James2", 37, PlayerType.WELL_ROUNDED);
         team.addPlayer(player1);
         team.removePlayer(player2);
         assertEquals(1, team.getRoster().size());
         team.removePlayer(player1);
         assertEquals(0, team.getRoster().size());
     }
+
 }

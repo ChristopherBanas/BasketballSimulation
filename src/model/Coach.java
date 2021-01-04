@@ -89,10 +89,16 @@ public class Coach {
      */
     @Override
     public String toString() {
+        String team;
+        if(this.team == null){
+            team = "None";
+        } else{
+            team = this.team.getName();
+        }
         return "Coach{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", team=" + team.getName() +
+                ", team=" + team +
                 '}';
     }
 

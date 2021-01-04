@@ -1,5 +1,6 @@
 package tests;
 
+import model.PlayerType;
 import model.Rating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,69 +13,19 @@ class RatingTest {
 
     @BeforeEach
     void setUp() {
-        rating = new Rating(99,99,99);
+        rating = new Rating(PlayerType.GOD);
     }
 
     @Test
-    void checkValue() {
-        assertAll(() -> assertEquals(99, rating.checkValue(100)),
-                () -> assertEquals(99, rating.checkValue(500)),
-                () -> assertEquals(1, rating.checkValue(0)),
-                () -> assertEquals(1, rating.checkValue(-500)),
-                () -> assertEquals(1, rating.checkValue(1)),
-                () -> assertEquals(99, rating.checkValue(99)));
+    void generateRating(){
+        assertAll(() -> assertTrue(rating.generateRating(1) >= 85 && rating.generateRating(1) <= 99),
+                () -> assertTrue(rating.generateRating(2) >= 70 && rating.generateRating(2) <= 80),
+                () -> assertTrue(rating.generateRating(3) >= 60 && rating.generateRating(3) <= 70),
+                () -> assertTrue(rating.generateRating(4) >= 50 && rating.generateRating(4) <= 60),
+                () -> assertTrue(rating.generateRating(5) >= 40 && rating.generateRating(5) <= 50),
+                () -> assertTrue(rating.generateRating(6) >= 30 && rating.generateRating(6) <= 40),
+                () -> assertEquals(5, rating.generateRating(7)));
     }
 
-    @Test
-    void getOffense() {
-        assertEquals(99, rating.getOffense());
-    }
 
-    @Test
-    void setOffense() {
-        rating.setOffense(87);
-        assertEquals(87, rating.getOffense());
-        rating.setOffense(0);
-        assertEquals(1, rating.getOffense());
-    }
-
-    @Test
-    void getDefense() {
-        assertEquals(99, rating.getDefense());
-    }
-
-    @Test
-    void setDefense() {
-        rating.setDefense(87);
-        assertEquals(87, rating.getDefense());
-        rating.setDefense(0);
-        assertEquals(1, rating.getDefense());
-    }
-
-    @Test
-    void getAthleticism() {
-        assertEquals(99, rating.getAthleticism());
-    }
-
-    @Test
-    void setAthleticism() {
-        rating.setAthleticism(87);
-        assertEquals(87, rating.getAthleticism());
-        rating.setAthleticism(0);
-        assertEquals(1, rating.getAthleticism());
-    }
-
-    @Test
-    void getOverall() {
-        assertEquals(99, rating.getOverall());
-    }
-
-    @Test
-    void updateOverall() {
-        rating.setOffense(90);
-        rating.setDefense(80);
-        rating.setAthleticism(70);
-        rating.updateOverall();
-        assertEquals(80, rating.getOverall());
-    }
 }

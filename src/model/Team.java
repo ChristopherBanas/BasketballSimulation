@@ -104,6 +104,15 @@ public class Team {
      */
     public void setCoach(Coach coach) {
         this.coach = coach;
+        coach.setTeam(this);
+    }
+
+    /**
+     * Remove coach from team
+     */
+    public void removeCoach() {
+        this.coach.setTeam(null);
+        this.coach = null;
     }
 
     /**
@@ -120,6 +129,7 @@ public class Team {
      */
     public void addPlayer(Player player) {
         roster.add(player);
+        player.setTeam(this);
     }
 
     /**
@@ -128,6 +138,7 @@ public class Team {
      */
     public void removePlayer(Player player){
         roster.remove(player);
+        player.setTeam(null);
     }
 
     /**
