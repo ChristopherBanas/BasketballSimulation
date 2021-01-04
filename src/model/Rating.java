@@ -79,13 +79,13 @@ public class Rating {
 
     public int generateRating(int tier){
         return switch (tier) {
-            case 1 -> (int) (Math.random() * (99 - 85 + 1) + 85);
-            case 2 -> (int) (Math.random() * (80 - 70 + 1) + 70);
-            case 3 -> (int) (Math.random() * (70 - 60 + 1) + 60);
-            case 4 -> (int) (Math.random() * (60 - 50 + 1) + 50);
-            case 5 -> (int) (Math.random() * (50 - 40 + 1) + 40);
-            case 6 -> (int) (Math.random() * (40 - 30 + 1) + 30);
-            default -> 5;
+            case 1 -> (int) (Math.random() * (99 - 85 + 1) + 85); //tier 1: 99-85
+            case 2 -> (int) (Math.random() * (80 - 70 + 1) + 70); //tier 2: 80-70
+            case 3 -> (int) (Math.random() * (70 - 60 + 1) + 60); //tier 3: 70-60
+            case 4 -> (int) (Math.random() * (60 - 50 + 1) + 50); //tier 4: 60-50
+            case 5 -> (int) (Math.random() * (50 - 40 + 1) + 40); //tier 5: 50-40
+            case 6 -> (int) (Math.random() * (40 - 30 + 1) + 30); //tier 6: 40-30
+            default -> 50;
         };
     }
 

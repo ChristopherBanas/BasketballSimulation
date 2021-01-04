@@ -42,6 +42,7 @@ public class Team {
         this.losses = 0;
         this.coach = coach;
         this.roster = new ArrayList<>();
+        coach.setTeam(this);
     }
 
     /**
@@ -181,4 +182,5 @@ public class Team {
                 ", roster=" + roster +
                 '}';
     }
+
 }

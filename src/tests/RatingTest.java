@@ -24,7 +24,7 @@ class RatingTest {
                 () -> assertTrue(rating.generateRating(4) >= 50 && rating.generateRating(4) <= 60),
                 () -> assertTrue(rating.generateRating(5) >= 40 && rating.generateRating(5) <= 50),
                 () -> assertTrue(rating.generateRating(6) >= 30 && rating.generateRating(6) <= 40),
-                () -> assertEquals(5, rating.generateRating(7)));
+                () -> assertEquals(50, rating.generateRating(7)));
     }
 
 
