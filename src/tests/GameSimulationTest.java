@@ -17,7 +17,7 @@ class GameSimulationTest {
 
     private Team sixers;
     private Team lakers;
-    private GameSimulation sim;
+    private Game game;
 
     @BeforeEach
     void setUp() {
@@ -69,13 +69,13 @@ class GameSimulationTest {
         lakers.addMultiplePlayers(playerList2);
         this.lakers = lakers;
 
-        Game game = new Game(sixers, lakers);
-        sim = new GameSimulation(game);
+        game = new Game(sixers, lakers);
+        game.simulate();
 
     }
 
     @Test
     void runSimulation() {
-        sim.runSimulation();
+        System.out.println(game.getWinner());
     }
 }

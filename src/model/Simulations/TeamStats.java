@@ -52,7 +52,6 @@ public class TeamStats {
 
     public void updateThreePointers(int threePointers) {
         this.threePointers += threePointers;
-        updateFieldGoals(threePointers);
     }
 
     public int getRebounds() {
@@ -83,7 +82,7 @@ public class TeamStats {
         updateList(stats);
         updateScore(stats.getTotalPoints());
         updateThreePointers(stats.getThreePointers());
-        updateFieldGoals(stats.getTwoPointers());
+        updateFieldGoals(stats.getFieldGoals());
         updateRebounds(stats.getRebounds());
         updateAssists(stats.getAssists());
     }
