@@ -41,7 +41,7 @@ class TeamTest {
 
     @Test
     void addPlayer() {
-        Player player = new Player("Lebron James", 35, PlayerType.WELL_ROUNDED);
+        Player player = new Player("Lebron James", 35, PlayerType.ALL_AROUND, PlayerRole.STAR);
         team.addPlayer(player);
         assertAll(() -> assertEquals(1, team.getRoster().size()),
                 () -> assertEquals(player, team.getRoster().get(0)));
@@ -49,8 +49,8 @@ class TeamTest {
 
     @Test
     void removePlayer() {
-        Player player1 = new Player("Lebron James", 35, PlayerType.WELL_ROUNDED);
-        Player player2 = new Player("Lebron James2", 37, PlayerType.WELL_ROUNDED);
+        Player player1 = new Player("Lebron James", 35, PlayerType.ALL_AROUND, PlayerRole.STAR);
+        Player player2 = new Player("Lebron James2", 37, PlayerType.ALL_AROUND, PlayerRole.STAR);
         team.addPlayer(player1);
         team.removePlayer(player2);
         assertEquals(1, team.getRoster().size());

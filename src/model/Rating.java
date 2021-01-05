@@ -18,73 +18,40 @@ public class Rating {
 
     public Rating(PlayerType type){
         switch (type) {
-            case SHARPSHOOTER -> {
-                this.outsideShotRating = generateRating(1);
-                this.insideShotRating = generateRating(6);
-                this.reboundRating = generateRating(4);
-                this.insideDefenseRating = generateRating(6);
-                this.outsideDefenseRating = generateRating(2);
-                this.passingRating = generateRating(3);
-            }
-            case PLAYMAKER -> {
-                this.outsideShotRating = generateRating(2);
-                this.insideShotRating = generateRating(4);
-                this.reboundRating = generateRating(6);
-                this.insideDefenseRating = generateRating(5);
-                this.outsideDefenseRating = generateRating(3);
-                this.passingRating = generateRating(1);
-            }
-            case REBOUNDER -> {
-                this.outsideShotRating = generateRating(5);
-                this.insideShotRating = generateRating(3);
-                this.reboundRating = generateRating(1);
-                this.insideDefenseRating = generateRating(2);
-                this.outsideDefenseRating = generateRating(5);
-                this.passingRating = generateRating(6);
-            }
-            case INSIDE_SCORER -> {
-                this.outsideShotRating = generateRating(4);
-                this.insideShotRating = generateRating(1);
-                this.reboundRating = generateRating(2);
-                this.insideDefenseRating = generateRating(4);
-                this.outsideDefenseRating = generateRating(6);
-                this.passingRating = generateRating(5);
-            }
-            case WELL_ROUNDED -> {
-                this.outsideShotRating = generateRating(3);
-                this.insideShotRating = generateRating(2);
-                this.reboundRating = generateRating(3);
-                this.insideDefenseRating = generateRating(3);
-                this.outsideDefenseRating = generateRating(4);
-                this.passingRating = generateRating(2);
-            }
-            case DEFENSIVE_MINDED -> {
-                this.outsideShotRating = generateRating(6);
-                this.insideShotRating = generateRating(5);
-                this.reboundRating = generateRating(4);
-                this.insideDefenseRating = generateRating(1);
-                this.outsideDefenseRating = generateRating(1);
-                this.passingRating = generateRating(4);
-            }
-            case GOD -> {
-                this.outsideShotRating = 90;
-                this.insideShotRating = 90;
-                this.reboundRating = 90;
-                this.insideDefenseRating = 90;
-                this.outsideDefenseRating = 90;
-                this.passingRating = 90;
-            }
+            case THREE_AND_D -> generateFields(1, 5, 8, 3, 1, 6);
+            case ALL_AROUND -> generateFields(4,4,4,4,4,4);
+            case PAINT_BEAST -> generateFields(8,1,1,1,7,6);
+            case OFFENSIVE_PLAYMAKER -> generateFields(2,2,8,6,5,1);
+            case DEFENSIVE_PLAYMAKER -> generateFields(8,6,6,2,1,1);
+            case HIGH_ENERGY -> generateFields(6,5,1,2,4,6);
+            case THREE_LEVEL_SCORER -> generateFields(1,1,4,7,7,4);
+            case POST_PLAYER -> generateFields(8,1,1,4,6,4);
+            case DEFENSIVE_MINDED -> generateFields(6,5,5,1,1,6);
+            case PURE_SHOOTER -> generateFields(1,3,6,8,8,6);
+            case GOD -> generateFields(0,0,0,0,0,0);
         }
+    }
+
+    public void generateFields(int out, int inside, int rebound, int inD, int outD, int pass){
+        this.outsideShotRating = generateRating(out);
+        this.insideShotRating = generateRating(inside);
+        this.reboundRating = generateRating(rebound);
+        this.insideDefenseRating = generateRating(inD);
+        this.outsideDefenseRating = generateRating(outD);
+        this.passingRating = generateRating(pass);
     }
 
     public int generateRating(int tier){
         return switch (tier) {
-            case 1 -> (int) (Math.random() * (99 - 85 + 1) + 85); //tier 1: 99-85
+            case 0 -> 90; //god tier
+            case 1 -> (int) (Math.random() * (90 - 80 + 1) + 80); //tier 1: 90-80
             case 2 -> (int) (Math.random() * (80 - 70 + 1) + 70); //tier 2: 80-70
             case 3 -> (int) (Math.random() * (70 - 60 + 1) + 60); //tier 3: 70-60
             case 4 -> (int) (Math.random() * (60 - 50 + 1) + 50); //tier 4: 60-50
             case 5 -> (int) (Math.random() * (50 - 40 + 1) + 40); //tier 5: 50-40
             case 6 -> (int) (Math.random() * (40 - 30 + 1) + 30); //tier 6: 40-30
+            case 7 -> (int) (Math.random() * (30 - 20 + 1) + 20); //tier 6: 30-20
+            case 8 -> (int) (Math.random() * (20 - 10 + 1) + 10); //tier 6: 20-10
             default -> 50;
         };
     }

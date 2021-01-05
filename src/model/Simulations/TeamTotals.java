@@ -1,4 +1,4 @@
-package model;
+package model.Simulations;
 
 import model.Player;
 import model.Team;

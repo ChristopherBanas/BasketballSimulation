@@ -1,5 +1,8 @@
 package model;
 
+import model.Simulations.GameSimulation;
+import model.Simulations.TeamStats;
+
 import java.util.Objects;
 
 /**
@@ -12,10 +15,10 @@ public class Game {
     private Team team1;
     /** Team two */
     private Team team2;
-    /** Team one score */
-    private int team1Score;
-    /** Team two score */
-    private int team2Score;
+    /** Team one box score */
+    private TeamStats team1BoxScore;
+    /** Team two box score */
+    private TeamStats team2BoxScore;
     /** Winner of game */
     private Team winner;
     /** Loser of game */
@@ -29,8 +32,6 @@ public class Game {
     public Game(Team team1, Team team2){
         this.team1 = team1;
         this.team2 = team2;
-        this.team1Score = 0;
-        this.team2Score = 0;
     }
 
     /**
@@ -50,35 +51,35 @@ public class Game {
     }
 
     /**
-     * Getter for team one score
+     * Getter for team one box score
      * @return Team one score
      */
-    public int getTeam1Score() {
-        return team1Score;
+    public TeamStats getTeam1Score() {
+        return team1BoxScore;
     }
 
     /**
      * Setter for team one score
-     * @param team1Score New score
+     * @param stats New box score
      */
-    public void setTeam1Score(int team1Score) {
-        this.team1Score = team1Score;
+    public void setTeam1BoxScore(TeamStats stats) {
+        this.team1BoxScore = stats;
     }
 
     /**
      * Getter for team two score
-     * @return Team two score
+     * @return stats Team two box score
      */
-    public int getTeam2Score() {
-        return team2Score;
+    public TeamStats getTeam2BoxScore() {
+        return team2BoxScore;
     }
 
     /**
-     * Setter for team twp score
-     * @param team2Score New score
+     * Setter for team two score
+     * @param stats New box score
      */
-    public void setTeam2Score(int team2Score) {
-        this.team2Score = team2Score;
+    public void setTeam2BoxScore(TeamStats stats) {
+        this.team2BoxScore = stats;
     }
 
     /**
@@ -95,6 +96,12 @@ public class Game {
      */
     public void setWinner(Team winner) {
         this.winner = winner;
+        winner.addWin();
+        if(winner.equals(team1)){ //team2 loser
+            setLoser(team2);
+        } else{ //team1 loser
+            setLoser(team1);
+        }
     }
 
     /**
@@ -111,6 +118,7 @@ public class Game {
      */
     public void setLoser(Team loser) {
         this.loser = loser;
+        loser.addLoss();
     }
 
     /**
@@ -123,8 +131,8 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return team1Score == game.team1Score &&
-                team2Score == game.team2Score &&
+        return team1BoxScore == game.team1BoxScore &&
+                team2BoxScore == game.team2BoxScore &&
                 Objects.equals(team1, game.team1) &&
                 Objects.equals(team2, game.team2) &&
                 Objects.equals(winner, game.winner) &&
@@ -137,7 +145,7 @@ public class Game {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(team1, team2, team1Score, team2Score, winner, loser);
+        return Objects.hash(team1, team2, team1BoxScore, team2BoxScore, winner, loser);
     }
 
     /**
@@ -149,10 +157,15 @@ public class Game {
         return "Game{" +
                 "team1=" + team1.getName() +
                 ", team2=" + team2.getName() +
-                ", team1Score=" + team1Score +
-                ", team2Score=" + team2Score +
+                ", team1Score=" + team1BoxScore.getScore() +
+                ", team2Score=" + team2BoxScore.getScore() +
                 ", winner=" + winner.getName() +
                 ", loser=" + loser.getName() +
                 '}';
+    }
+
+    public void simulate(){
+        GameSimulation simulation = new GameSimulation(this);
+        simulation.runSimulation();
     }
 }

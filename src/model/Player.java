@@ -18,18 +18,22 @@ public class Player {
     private PlayerType type;
     /** Team of player */
     private Team team;
+    /** Role of player */
+    private PlayerRole role;
 
     /**
      * Constructor for Player when team isn't known
      * @param name Name of player
      * @param age Age of player
      * @param playerType Type of player
+     * @param playerRole Role of player
      */
-    public Player(String name, int age, PlayerType playerType){
+    public Player(String name, int age, PlayerType playerType, PlayerRole playerRole){
         this.name = name;
         this.age = age;
         this.rating = new Rating(playerType);
         this.type = playerType;
+        this.role = playerRole;
     }
     /**
      * Constructor for Player when team is known
@@ -37,12 +41,14 @@ public class Player {
      * @param age Age of player
      * @param playerType Type of player
      * @param team Team of player
+     * @param playerRole Role of player
      */
-    public Player(String name, int age, PlayerType playerType, Team team){
+    public Player(String name, int age, PlayerType playerType, PlayerRole playerRole, Team team){
         this.name = name;
         this.age = age;
         this.rating = new Rating(playerType);
         this.type = playerType;
+        this.role = playerRole;
         this.team = team;
     }
 
@@ -78,7 +84,6 @@ public class Player {
         return rating;
     }
 
-
     /**
      * Getter for type
      * @return PlayerType
@@ -86,7 +91,6 @@ public class Player {
     public PlayerType getType() {
         return type;
     }
-
 
     /**
      * Equals method for player
@@ -101,6 +105,7 @@ public class Player {
         return age == player.age &&
                 Objects.equals(name, player.name) &&
                 Objects.equals(rating, player.rating) &&
+                Objects.equals(role, player.role) &&
                 Objects.equals(team, player.team) &&
                 type == player.type;
     }
@@ -111,7 +116,7 @@ public class Player {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, rating, type, team);
+        return Objects.hash(name, age, rating, type, role, team);
     }
 
     /**
@@ -131,6 +136,7 @@ public class Player {
                 ", age=" + age +
                 ", rating=" + rating +
                 ", type=" + type +
+                ", role=" + role +
                 ", team=" + team +
                 '}';
     }
@@ -149,5 +155,21 @@ public class Player {
      */
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    /**
+     * Getter for player's role
+     * @return Role of player
+     */
+    public PlayerRole getRole() {
+        return role;
+    }
+
+    /**
+     * Setter for player's role
+     * @param role New role
+     */
+    public void setRole(PlayerRole role) {
+        this.role = role;
     }
 }

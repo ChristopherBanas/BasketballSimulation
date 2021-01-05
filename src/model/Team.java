@@ -133,6 +133,12 @@ public class Team {
         player.setTeam(this);
     }
 
+    public void addMultiplePlayers(ArrayList<Player> players){
+        for(Player player : players){
+            addPlayer(player);
+        }
+    }
+
     /**
      * Remove a player from roster
      * @param player Player to be removed
@@ -174,6 +180,12 @@ public class Team {
      */
     @Override
     public String toString() {
+        String coach;
+        if(this.coach == null){
+            coach = "None";
+        } else{
+            coach = this.coach.getName();
+        }
         return "Team{" +
                 "name='" + name + '\'' +
                 ", wins=" + wins +
