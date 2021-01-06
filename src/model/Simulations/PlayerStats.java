@@ -1,6 +1,6 @@
 package model.Simulations;
 
-import model.Player;
+import model.Player.Player;
 
 import java.util.Objects;
 

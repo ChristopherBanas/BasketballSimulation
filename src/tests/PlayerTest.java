@@ -1,8 +1,9 @@
 package tests;
 
-import model.Player;
-import model.PlayerRole;
-import model.PlayerType;
+import model.Player.Player;
+import model.Player.Position;
+import model.Player.Role;
+import model.Player.Type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +15,13 @@ class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        player = new Player("Lebron James", 35, PlayerType.ALL_AROUND, PlayerRole.STAR);
+        player = new Player("Lebron James", 35, Type.ALL_AROUND,
+                Role.STAR, Position.SMALL_FORWARD);
     }
 
     @Test
     void getType() {
-        assertEquals(PlayerType.ALL_AROUND, player.getType());
+        assertEquals(Type.ALL_AROUND, player.getType());
     }
 
     @Test

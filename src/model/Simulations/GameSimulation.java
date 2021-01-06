@@ -1,8 +1,8 @@
 package model.Simulations;
 
 import model.Game;
-import model.Player;
-import model.PlayerRole;
+import model.Player.Player;
+import model.Player.Role;
 
 /**
  * Desc: Simulates a game by getting each player's individual stat's and adding them
@@ -11,7 +11,7 @@ import model.PlayerRole;
 public class GameSimulation {
 
     /** Game to be simulated */
-    private Game game;
+    private final Game game;
     /** Total stats of team 1 */
     private TeamTotals team1Stats;
     /** Total stats of team 2 */
@@ -41,7 +41,7 @@ public class GameSimulation {
      * Sets role factor
      * @param role Role of player
      */
-    public void setRole(PlayerRole role){
+    public void setRole(Role role){
         switch (role){
             case STAR -> ROLE_FACTOR = 1.25;
             case STARTER -> ROLE_FACTOR = .60;

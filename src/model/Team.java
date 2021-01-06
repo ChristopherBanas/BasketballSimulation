@@ -1,5 +1,7 @@
 package model;
 
+import model.Player.Player;
+
 import java.util.ArrayList;
 import java.util.Objects;
 

@@ -1,10 +1,12 @@
 package tests;
 
 import model.*;
+import model.Player.Player;
+import model.Player.Position;
+import model.Player.Role;
+import model.Player.Type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,7 +43,8 @@ class TeamTest {
 
     @Test
     void addPlayer() {
-        Player player = new Player("Lebron James", 35, PlayerType.ALL_AROUND, PlayerRole.STAR);
+        Player player = new Player("Lebron James", 35, Type.ALL_AROUND,
+                Role.STAR, Position.SMALL_FORWARD);
         team.addPlayer(player);
         assertAll(() -> assertEquals(1, team.getRoster().size()),
                 () -> assertEquals(player, team.getRoster().get(0)));
@@ -49,8 +52,10 @@ class TeamTest {
 
     @Test
     void removePlayer() {
-        Player player1 = new Player("Lebron James", 35, PlayerType.ALL_AROUND, PlayerRole.STAR);
-        Player player2 = new Player("Lebron James2", 37, PlayerType.ALL_AROUND, PlayerRole.STAR);
+        Player player1 = new Player("Lebron James", 35, Type.ALL_AROUND,
+                Role.STAR, Position.SMALL_FORWARD);
+        Player player2 = new Player("Lebron James2", 37, Type.ALL_AROUND,
+                Role.STAR, Position.SMALL_FORWARD);
         team.addPlayer(player1);
         team.removePlayer(player2);
         assertEquals(1, team.getRoster().size());

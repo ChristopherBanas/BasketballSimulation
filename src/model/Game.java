@@ -12,18 +12,20 @@ import java.util.Objects;
 public class Game {
 
     /** Team one */
-    private Team team1;
+    private final Team team1;
     /** Team two */
-    private Team team2;
+    private final Team team2;
     /** Team one box score */
     private TeamStats team1BoxScore;
     /** Team two box score */
     private TeamStats team2BoxScore;
     /** Winner of game */
     private Team winner;
+    /** Box score of winner */
     private TeamStats winnerBoxScore;
     /** Loser of game */
     private Team loser;
+    /** Box score of loser */
     private TeamStats loserBoxScore;
 
     /**
@@ -173,7 +175,6 @@ public class Game {
     public void play(){
         GameSimulation simulation = new GameSimulation(this);
         simulation.runSimulation();
-        printResults();
     }
 
     public void printResults(){

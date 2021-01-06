@@ -1,4 +1,6 @@
-package model;
+package model.Player;
+
+import model.Team;
 
 import java.util.Objects;
 
@@ -15,41 +17,48 @@ public class Player {
     /** Rating of player */
     private Rating rating;
     /** Type of player */
-    private PlayerType type;
+    private Type type;
     /** Team of player */
     private Team team;
     /** Role of player */
-    private PlayerRole role;
+    private Role role;
+    /** Position of player */
+    private Position position;
 
     /**
      * Constructor for Player when team isn't known
      * @param name Name of player
      * @param age Age of player
-     * @param playerType Type of player
-     * @param playerRole Role of player
+     * @param type Type of player
+     * @param role Role of player
+     * @param position Position of player
      */
-    public Player(String name, int age, PlayerType playerType, PlayerRole playerRole){
+    public Player(String name, int age, Type type, Role role, Position position){
         this.name = name;
         this.age = age;
-        this.rating = new Rating(playerType);
-        this.type = playerType;
-        this.role = playerRole;
+        this.rating = new Rating(type);
+        this.type = type;
+        this.role = role;
+        this.position = position;
     }
+
     /**
      * Constructor for Player when team is known
      * @param name Name of player
      * @param age Age of player
-     * @param playerType Type of player
+     * @param type Type of player
      * @param team Team of player
-     * @param playerRole Role of player
+     * @param role Role of player
+     * @param position Position of player
      */
-    public Player(String name, int age, PlayerType playerType, PlayerRole playerRole, Team team){
+    public Player(String name, int age, Type type, Role role, Position position, Team team){
         this.name = name;
         this.age = age;
-        this.rating = new Rating(playerType);
-        this.type = playerType;
-        this.role = playerRole;
+        this.rating = new Rating(type);
+        this.type = type;
+        this.role = role;
         this.team = team;
+        this.position = position;
     }
 
 
@@ -88,7 +97,7 @@ public class Player {
      * Getter for type
      * @return PlayerType
      */
-    public PlayerType getType() {
+    public Type getType() {
         return type;
     }
 
@@ -106,6 +115,7 @@ public class Player {
                 Objects.equals(name, player.name) &&
                 Objects.equals(rating, player.rating) &&
                 Objects.equals(role, player.role) &&
+                Objects.equals(position, player.position) &&
                 Objects.equals(team, player.team) &&
                 type == player.type;
     }
@@ -116,7 +126,7 @@ public class Player {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, rating, type, role, team);
+        return Objects.hash(name, age, rating, type, role, position, team);
     }
 
     /**
@@ -137,6 +147,7 @@ public class Player {
                 ", rating=" + rating +
                 ", type=" + type +
                 ", role=" + role +
+                ", position=" + position +
                 ", team=" + team +
                 '}';
     }
@@ -161,7 +172,7 @@ public class Player {
      * Getter for player's role
      * @return Role of player
      */
-    public PlayerRole getRole() {
+    public Role getRole() {
         return role;
     }
 
@@ -169,7 +180,23 @@ public class Player {
      * Setter for player's role
      * @param role New role
      */
-    public void setRole(PlayerRole role) {
+    public void setRole(Role role) {
         this.role = role;
+    }
+
+    /**
+     * Getter for player's position
+     * @return Position of player
+     */
+    public Position getPosition() {
+        return position;
+    }
+
+    /**
+     * Setter for player's position
+     * @param position New position
+     */
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

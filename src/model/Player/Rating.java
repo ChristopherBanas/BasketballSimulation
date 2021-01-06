@@ -1,4 +1,4 @@
-package model;
+package model.Player;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class Rating {
     private int passingRating;
 
 
-    public Rating(PlayerType type){
+    public Rating(Type type){
         switch (type) {
             case THREE_AND_D -> generateFields(1, 5, 8, 3, 1, 6);
             case ALL_AROUND -> generateFields(4,4,4,4,4,4);
