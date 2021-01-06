@@ -70,12 +70,14 @@ class GameSimulationTest {
         this.lakers = lakers;
 
         game = new Game(sixers, lakers);
-        game.simulate();
+        game.play();
 
     }
 
     @Test
     void runSimulation() {
         System.out.println(game.getWinner());
+        System.out.println(game.getTeam1BoxScore().toString());
+        System.out.println(game.getTeam2BoxScore().toString());
     }
 }

@@ -54,7 +54,7 @@ public class Game {
      * Getter for team one box score
      * @return Team one score
      */
-    public TeamStats getTeam1Score() {
+    public TeamStats getTeam1BoxScore() {
         return team1BoxScore;
     }
 
@@ -164,7 +164,7 @@ public class Game {
                 '}';
     }
 
-    public void simulate(){
+    public void play(){
         GameSimulation simulation = new GameSimulation(this);
         simulation.runSimulation();
     }

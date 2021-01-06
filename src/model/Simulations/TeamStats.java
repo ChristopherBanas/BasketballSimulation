@@ -105,4 +105,37 @@ public class TeamStats {
     public int hashCode() {
         return Objects.hash(team, score, fieldGoals, threePointers, rebounds, assists, statsList);
     }
+
+    public int longestName(){
+        int largest = statsList.get(0).getPlayer().getName().length();
+        for(PlayerStats stats : statsList){
+            if(stats.getPlayer().getName().length() > largest){
+                largest = stats.getPlayer().getName().length();
+            }
+        }
+        return largest + 5;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder boxScore = new StringBuilder();
+        int longestName = longestName();
+        boxScore.append(" \n");
+        boxScore.append(String.format("| %s Box Score\n", team.getName()));
+        boxScore.append("|\n");
+        boxScore.append(String.format("| %s "+"%"+longestName+"s"+" %10s %10s %5s %6s", "Name", "Points",
+                "Rebounds", "Assists", "3PM", "FGM\n"));
+        for(PlayerStats stats : statsList){
+            int spacing = longestName - stats.getPlayer().getName().length();
+            boxScore.append("|\n");
+            boxScore.append(String.format("| %s "+"%"+spacing+"s"+" %8s %11s %9s %5s\n", stats.getPlayer().getName(),
+                    stats.getTotalPoints(), stats.getRebounds(), stats.getAssists(),
+                    stats.getThreePointers(), stats.getFieldGoals()));
+        }
+        boxScore.append("| \n");
+        int spacing = longestName - 6;
+        boxScore.append(String.format("| %s "+"%"+spacing+"s"+" %8s %11s %9s %5s\n", "TOTALS", score, rebounds,
+                assists, threePointers, fieldGoals));
+        return boxScore.toString();
+    }
 }

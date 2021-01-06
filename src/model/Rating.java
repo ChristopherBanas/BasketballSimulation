@@ -43,7 +43,7 @@ public class Rating {
 
     public int generateRating(int tier){
         return switch (tier) {
-            case 0 -> 90; //god tier
+            case 0 -> (int) (Math.random() * (99 - 90 + 1) + 90); //tier 0: 99-90
             case 1 -> (int) (Math.random() * (90 - 80 + 1) + 80); //tier 1: 90-80
             case 2 -> (int) (Math.random() * (80 - 70 + 1) + 70); //tier 2: 80-70
             case 3 -> (int) (Math.random() * (70 - 60 + 1) + 60); //tier 3: 70-60

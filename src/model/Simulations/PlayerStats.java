@@ -97,6 +97,14 @@ public class PlayerStats {
     }
 
     /**
+     * Getter for player
+     * @return Player whose these stats belong to
+     */
+    public Player getPlayer() {
+        return player;
+    }
+
+    /**
      * Equals method for player stats
      * @param o Player stats to be compared
      * @return If player stats are equal
