@@ -19,7 +19,7 @@ public class GameSimulation {
     /** Affects player's production based on their role */
     private double ROLE_FACTOR  = 0.0;
     /** Affect's how many threes are made (higher means less) */
-    private final double OUTSIDE_FACTOR = 18.0;
+    private final double OUTSIDE_FACTOR = 17.0;
     /** Affect's how many two are made (higher means less) */
     private final double INSIDE_FACTOR = 7.5;
     /** Affect's how many rebounds are grabbed (higher means less) */
@@ -46,7 +46,7 @@ public class GameSimulation {
             case STAR -> ROLE_FACTOR = 1.25;
             case STARTER -> ROLE_FACTOR = .60;
             case SIXTH_MAN -> ROLE_FACTOR = .50;
-            case BENCH -> ROLE_FACTOR = .40;
+            case BENCH -> ROLE_FACTOR = .45;
         }
     }
 

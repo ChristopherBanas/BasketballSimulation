@@ -69,15 +69,13 @@ class GameSimulationTest {
         lakers.addMultiplePlayers(playerList2);
         this.lakers = lakers;
 
-        game = new Game(sixers, lakers);
+        game = new Game(lakers, sixers);
         game.play();
 
     }
 
     @Test
     void runSimulation() {
-        System.out.println(game.getWinner());
-        System.out.println(game.getTeam1BoxScore().toString());
-        System.out.println(game.getTeam2BoxScore().toString());
+
     }
 }

@@ -21,8 +21,10 @@ public class Game {
     private TeamStats team2BoxScore;
     /** Winner of game */
     private Team winner;
+    private TeamStats winnerBoxScore;
     /** Loser of game */
     private Team loser;
+    private TeamStats loserBoxScore;
 
     /**
      * Constructor for Game
@@ -98,8 +100,12 @@ public class Game {
         this.winner = winner;
         winner.addWin();
         if(winner.equals(team1)){ //team2 loser
+            winnerBoxScore = team1BoxScore;
+            loserBoxScore = team2BoxScore;
             setLoser(team2);
         } else{ //team1 loser
+            winnerBoxScore = team2BoxScore;
+            loserBoxScore = team1BoxScore;
             setLoser(team1);
         }
     }
@@ -167,5 +173,18 @@ public class Game {
     public void play(){
         GameSimulation simulation = new GameSimulation(this);
         simulation.runSimulation();
+        printResults();
+    }
+
+    public void printResults(){
+        String header = "|\n" +
+                String.format("| %s versus %s\n", team1.getName(), team2.getName()) +
+                String.format("| Winner: %s (%d - %d)\n", winner.getName(),
+                        winnerBoxScore.getScore(), loserBoxScore.getScore()) +
+                "|\n";
+        System.out.println(header);
+        System.out.println(winnerBoxScore.toString());
+        System.out.println(loserBoxScore.toString());
+
     }
 }
