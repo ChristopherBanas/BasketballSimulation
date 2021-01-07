@@ -8,14 +8,23 @@ import java.util.Objects;
  */
 public class Rating {
 
+    /** How well a player shoots from outside (0-100) */
     private int outsideShotRating;
+    /** How well a player shoots from inside (0-100) */
     private int insideShotRating;
+    /** How well a player rebounds (0-100) */
     private int reboundRating;
+    /** How well a player defends inside (0-100) */
     private int insideDefenseRating;
+    /** How well a player defends outside (0-100) */
     private int outsideDefenseRating;
+    /** How well a player passes (0-100) */
     private int passingRating;
 
-
+    /**
+     * Constructor for Rating
+     * @param type Type of this player
+     */
     public Rating(Type type){
         switch (type) {
             case THREE_AND_D -> generateFields(1, 5, 8, 3, 1, 6);
@@ -32,6 +41,15 @@ public class Rating {
         }
     }
 
+    /**
+     * Generate fields given tiers of attributes
+     * @param out Outside shot tier
+     * @param inside Inside shot tier
+     * @param rebound Rebounding tier
+     * @param inD Inside defense tier
+     * @param outD Outside defense tier
+     * @param pass Passing tier
+     */
     public void generateFields(int out, int inside, int rebound, int inD, int outD, int pass){
         this.outsideShotRating = generateRating(out);
         this.insideShotRating = generateRating(inside);
@@ -41,6 +59,11 @@ public class Rating {
         this.passingRating = generateRating(pass);
     }
 
+    /**
+     * Randomly generates a rating given a tier
+     * @param tier Tier to be generated
+     * @return Rating number
+     */
     public int generateRating(int tier){
         return switch (tier) {
             case 0 -> (int) (Math.random() * (99 - 90 + 1) + 90); //tier 0: 99-90
@@ -56,30 +79,59 @@ public class Rating {
         };
     }
 
+    /**
+     * Getter for outside shot rating
+     * @return Outside shot rating
+     */
     public int getOutsideShotRating() {
         return outsideShotRating;
     }
 
+    /**
+     * Getter for inside shot rating
+     * @return Inside shot rating
+     */
     public int getInsideShotRating() {
         return insideShotRating;
     }
 
+    /**
+     * Getter for rebounding rating
+     * @return Rebounding rating
+     */
     public int getReboundRating() {
         return reboundRating;
     }
 
+    /**
+     * Getter for inside defense rating
+     * @return Inside defense rating
+     */
     public int getInsideDefenseRating() {
         return insideDefenseRating;
     }
 
+    /**
+     * Getter for outside defense rating
+     * @return Outside defense rating
+     */
     public int getOutsideDefenseRating() {
         return outsideDefenseRating;
     }
 
+    /**
+     * Getter for passing rating
+     * @return Passing rating
+     */
     public int getPassingRating() {
         return passingRating;
     }
 
+    /**
+     * Equals method for rating
+     * @param o Rating to be compared
+     * @return If equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,12 +145,20 @@ public class Rating {
                 passingRating == rating.passingRating;
     }
 
+    /**
+     * Hash method
+     * @return Hash code
+     */
     @Override
     public int hashCode() {
         return Objects.hash(outsideShotRating, insideShotRating, reboundRating,
                 insideDefenseRating, outsideDefenseRating, passingRating);
     }
 
+    /**
+     * Prints rating
+     * @return String of rating
+     */
     @Override
     public String toString() {
         return "Rating{" +
