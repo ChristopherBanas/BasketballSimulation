@@ -9,11 +9,8 @@ class GeneratePlayerTest {
     void GeneratePlayer(){
         GeneratePlayer generatePlayer = new GeneratePlayer();
         System.out.println(generatePlayer.generateName());
-        System.out.println(generatePlayer.generateName());
-        System.out.println(generatePlayer.generateName());
-        System.out.println(generatePlayer.generateName());
-        System.out.println(generatePlayer.generateName());
-        System.out.println(generatePlayer.generateName());
+        System.out.println(generatePlayer.generateType());
+        System.out.println(generatePlayer.generatePosition());
     }
 
 }
