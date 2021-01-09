@@ -31,7 +31,7 @@ public class GeneratePlayer {
      */
     public String generateName(){
         String name = "";
-        int listLength = 2944; //length of arrays in NameLists
+        int listLength = 2943; //length of arrays in NameLists
         while (name.equals("")){ //will break loop if name is not in nameSet
             int random = new Random().nextInt(listLength);
             String firstName = NameLists.firstNameList.get(random); //O(1) time complexity
