@@ -9,24 +9,35 @@ import model.Player.Type;
 import java.util.HashSet;
 import java.util.Random;
 
-
+/**
+ * Desc: Class for player generation
+ * Author: Christopher Banas
+ */
 public class GeneratePlayer {
 
+    /** Set of all the names generated so far */
     HashSet<String> nameSet;
 
+    /**
+     * Constructor for GeneratePlayer
+     */
     public GeneratePlayer(){
         nameSet = new HashSet<>();
     }
 
+    /**
+     * Generates a unique name
+     * @return Name of player
+     */
     public String generateName(){
         String name = "";
-        int listLength = 2944;
+        int listLength = 2944; //length of arrays in NameLists
         while (name.equals("")){ //will break loop if name is not in nameSet
             int random = new Random().nextInt(listLength);
-            String firstName = NameLists.firstNameList.get(random);
-            String lastName = NameLists.lastNameList.get(random);
+            String firstName = NameLists.firstNameList.get(random); //O(1) time complexity
+            String lastName = NameLists.lastNameList.get(random); //O(1) time complexity
             name = firstName + " " + lastName;
-            if(nameSet.contains(name)){
+            if(nameSet.contains(name)){ //O(1) time complexity
                 name = "";
             }
         }
@@ -34,6 +45,11 @@ public class GeneratePlayer {
         return name;
     }
 
+    /**
+     * Generates a type for a point guard
+     * @param role Role of point guard
+     * @return Type of point guard
+     */
     public Type pointGuardType(Role role){
         int random;
         if(role.equals(Role.SUPERSTAR)){
@@ -56,6 +72,11 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates a type for a shooting guard
+     * @param role Role of shooting guard
+     * @return Type of shooting guard
+     */
     public Type shootingGuardType(Role role){
         int random;
         if(role.equals(Role.SUPERSTAR)){
@@ -78,6 +99,11 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates a type for a small forward
+     * @param role Role of small forward
+     * @return Type of small forward
+     */
     public Type smallForwardType(Role role){
         int random;
         if(role.equals(Role.SUPERSTAR)){
@@ -101,6 +127,11 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates a type for a power forward
+     * @param role Role of power forward
+     * @return Type of power forward
+     */
     public Type powerForwardType(Role role){
         int random;
         if(role.equals(Role.SUPERSTAR)){
@@ -124,6 +155,11 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates a type for a center
+     * @param role Role of center
+     * @return Type of center
+     */
     public Type centerType(Role role){
         int random;
         if(role.equals(Role.SUPERSTAR)){
@@ -141,6 +177,12 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates type given a position and role
+     * @param position Position of player
+     * @param role Role of player
+     * @return Type of player
+     */
     public Type generateType(Position position, Role role){
         return switch (position){
             case POINT_GUARD -> pointGuardType(role);
@@ -151,6 +193,10 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates position by random
+     * @return Position of player
+     */
     public Position generatePosition(){
         int numberOfPositions = 4; //starting at 0
         int random = new Random().nextInt(numberOfPositions);
@@ -164,25 +210,37 @@ public class GeneratePlayer {
         };
     }
 
+    /**
+     * Generates role by random
+     * @return Role of player
+     */
     public Role generateRole(){
         int random = new Random().nextInt(240);
-        if(random <= 20){ //0-20
+        if(random <= 20){ //0-20, rare
             return Role.SUPERSTAR;
-        } else if(random <= 60){ //21-60
+        } else if(random <= 60){ //21-60, uncommon
             return Role.STAR;
-        } else if(random <= 120){ //61-120
+        } else if(random <= 120){ //61-120, average
             return Role.STARTER;
-        } else if(random <= 180){ //121-180
+        } else if(random <= 180){ //121-180, common
             return Role.SIXTH_MAN;
         } else{ //181-240
             return Role.BENCH;
         }
     }
 
+    /**
+     * Generates age by random
+     * @return Age of player
+     */
     public int generateAge(){
-        return (int) (Math.random() * (22 - 19 + 1) + 19);
+        return (int) (Math.random() * (22 - 19 + 1) + 19); //age range 19-22
     }
 
+    /**
+     * Creates a completely random player
+     * @return Player
+     */
     public Player createPlayer(){
         Position position = generatePosition();
         Role role = generateRole();
@@ -190,6 +248,11 @@ public class GeneratePlayer {
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player with a given name
+     * @param name Name of player
+     * @return Player
+     */
     public Player createPlayer(String name){
         Position position = generatePosition();
         Role role = generateRole();
@@ -197,33 +260,70 @@ public class GeneratePlayer {
         return new Player(name, generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player with a given position
+     * @param position Position of player
+     * @return Player
+     */
     public Player createPlayer(Position position){
         Role role = generateRole();
         Type type = generateType(position, role);
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player with a given role
+     * @param role Role of player
+     * @return Player
+     */
     public Player createPlayer(Role role){
         Position position = generatePosition();
         Type type = generateType(position, role);
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player with a given type
+     * @param type Type of player
+     * @return Player
+     */
     public Player createPlayer(Type type){
         Position position = generatePosition();
         Role role = generateRole();
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player given a position and role
+     * @param position Position of player
+     * @param role Role of player
+     * @return Player
+     */
     public Player createPlayer(Position position, Role role){
         Type type = generateType(position, role);
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a random player given a position, role, and type
+     * @param position Position of player
+     * @param role Rol of player
+     * @param type Type of player
+     * @return Player
+     */
     public Player createPlayer(Position position, Role role, Type type){
         return new Player(generateName(), generateAge(), type, role, position);
     }
 
+    /**
+     * Creates a player given name, age, position, role, and type
+     * @param name Name of player
+     * @param age Age of player
+     * @param position Position of player
+     * @param role Role of player
+     * @param type Type of player
+     * @return Player
+     */
     public Player createPlayer(String name, int age, Position position, Role role, Type type){
         return new Player(name, age, type, role, position);
     }
