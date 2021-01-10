@@ -1,6 +1,7 @@
-package model;
+package model.Autogeneration;
 
 import model.Autogeneration.data.NameLists;
+import model.Coach;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -38,7 +39,7 @@ public class GenerateCoach {
      * @return Age of coach
      */
     public int generateAge(){
-        return (int) (Math.random() * (60 - 45 + 1) + 19); //age range 60-45
+        return (int) (Math.random() * (60 - 45 + 1) + 45); //age range 60-45
     }
 
     public Coach createCoach(){

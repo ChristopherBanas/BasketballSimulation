@@ -1,16 +1,14 @@
 package model.Autogeneration;
 
-import model.Autogeneration.data.NameLists;
 import model.Autogeneration.data.TeamList;
 import model.Coach;
-import model.GenerateCoach;
 import model.Player.Player;
+import model.Player.Position;
 import model.Player.Role;
 import model.Player.Type;
 import model.Team;
 
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class GenerateTeam {
 
@@ -43,25 +41,112 @@ public class GenerateTeam {
         return coachGenerator.createCoach();
     }
 
-    public Team generateGodTeam(){
-        Team team = new Team(generateName(), generateCoach());
-        for(int i=0; i<ROSTER_SIZE; i++){
-            Player player = playerGenerator.createPlayer(Type.GOD);
-            team.addPlayer(player);
+    public Player generateBenchPlayer(Position position, Role role){
+        return playerGenerator.createPlayer(position, role);
+    }
+
+    public Team generateBench(Team team){
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+
+        for(int i=0; i<ROSTER_SIZE-5; i++){ //create bench
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            if(i == 0){ //sixth man
+                team.addPlayer(generateBenchPlayer(position, Role.SIXTH_MAN));
+            } else{
+                team.addPlayer(generateBenchPlayer(position, Role.BENCH));
+            }
         }
         return team;
     }
 
-    /**
-    public Team generateSuperTeam(){}
+    public Team generateGodTeam(){
+        Team team = new Team(generateName(), generateCoach());
 
-    public Team generateContendingTeam(){}
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
 
-    public Team generatePlayoffTeam(){}
+        for(int i=0; i<5; i++){ //create starting 5
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            Player player = playerGenerator.createPlayer(position, Role.SUPERSTAR, Type.GOD);
+            team.addPlayer(player);
+        }
+        return generateBench(team);
+    }
 
-    public Team generateAverageTeam(){}
+    public Team generateSuperTeam(){
+        Team team = new Team(generateName(), generateCoach());
 
-    public Team generateTankingTeam(){}
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+
+        for(int i=0; i<5; i++){ //create starting 5
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            Role role = Role.STARTER;
+            if(i < 2){ //2 superstars needed for super team
+                role = Role.SUPERSTAR;
+            } else if(i == 2){ //1 star needed for super team
+                role = Role.STAR;
+            }
+            Player player = playerGenerator.createPlayer(position, role);
+            team.addPlayer(player);
+        }
+        return generateBench(team);
+    }
+
+    public Team generateContendingTeam(){
+        Team team = new Team(generateName(), generateCoach());
+
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+
+        int numOfSuperstars = (int) (Math.random() * (2 - 1 + 1) + 1);
+        for(int i=0; i<5; i++){ //create starting 5
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            Role role = Role.STARTER;
+            if(i < numOfSuperstars){ //1 or 2 superstars needed for contending team
+                role = Role.SUPERSTAR;
+            } else if(i == numOfSuperstars && numOfSuperstars == 1){ //1 star needed for with super star
+                role = Role.STAR;
+            }
+            Player player = playerGenerator.createPlayer(position, role);
+            team.addPlayer(player);
+        }
+        return generateBench(team);
+    }
+
+    public Team generatePlayoffTeam(){
+        Team team = new Team(generateName(), generateCoach());
+
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+
+        int numOfStars = (int) (Math.random() * (2 - 1 + 1) + 1);
+        for(int i=0; i<5; i++){ //create starting 5
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            Role role = Role.STARTER;
+            if(i < numOfStars){ //1 or 2 stars needed for playoff team
+                role = Role.STAR;
+            }
+            Player player = playerGenerator.createPlayer(position, role);
+            team.addPlayer(player);
+        }
+        return generateBench(team);
+    }
+
+    public Team generateAverageTeam(){
+        Team team = new Team(generateName(), generateCoach());
+
+        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
+                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+
+        for(int i=0; i<5; i++){ //create starting 5
+            Position position = positionList.remove(new Random().nextInt(positionList.size()));
+            Player player = playerGenerator.createPlayer(position, Role.STARTER);
+            team.addPlayer(player);
+        }
+        return generateBench(team);
+    }
 
     public TeamType generateRandomTeamType(){
         int random = new Random().nextInt(200);
@@ -76,7 +161,6 @@ public class GenerateTeam {
         }
     }
 
-
     public Team generateTeamType(TeamType teamType){
         if(teamType == null){
             teamType = generateRandomTeamType();
@@ -89,6 +173,4 @@ public class GenerateTeam {
             case AVERAGE_TEAM -> generateAverageTeam();
         };
     }
-     */
-
 }
