@@ -1,7 +1,9 @@
 package tests;
 
 import model.Autogeneration.GenerateTeam;
+import model.Autogeneration.TeamType;
 import model.Autogeneration.data.TeamList;
+import model.Game;
 import model.Player.Role;
 import model.Player.Type;
 import model.Team;
@@ -28,15 +30,6 @@ class GenerateTeamTest {
             assertTrue(TeamList.teamNameList.contains(name));
         }
     }
-
-    /**
-    @Test
-    void generateRandomTeamType(){
-        for(int i = 0; i < 20; i++){
-            System.out.println(generator.generateRandomTeamType());
-        }
-    }
-    */
 
     @Test
     void generateGodTeam(){

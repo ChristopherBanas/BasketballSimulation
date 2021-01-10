@@ -3,6 +3,10 @@ package model.Autogeneration.data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Desc: Class for holding the lists of all first and last names
+ * Author: Christopher Banas
+ */
 public class NameLists {
 
     public static List<String> firstNameList = new ArrayList<>(List.of(

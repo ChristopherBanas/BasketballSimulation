@@ -10,19 +10,34 @@ import model.Team;
 
 import java.util.*;
 
+/**
+ * Desc: Class for team generation
+ * Author: Christopher Banas
+ */
 public class GenerateTeam {
 
+    /** Set of all the names generated so far */
     private HashSet<String> nameSet;
+    /** Player generator */
     private GeneratePlayer playerGenerator;
+    /** Coach generator */
     private GenerateCoach coachGenerator;
+    /** Global variable that sets how many players are in a team */
     private int ROSTER_SIZE = 9;
 
+    /**
+     * Constructor for GenerateTeam
+     */
     public GenerateTeam(){
         this.nameSet = new HashSet<>();
         this.playerGenerator = new GeneratePlayer();
         this.coachGenerator = new GenerateCoach();
     }
 
+    /**
+     * Generates a unique team name
+     * @return Name of team
+     */
     public String generateName(){
         String name = "";
         int listLength = 4;
@@ -37,14 +52,29 @@ public class GenerateTeam {
         return name;
     }
 
+    /**
+     * Generates a coach
+     * @return Coach
+     */
     public Coach generateCoach(){
         return coachGenerator.createCoach();
     }
 
+    /**
+     * Generates a bench player
+     * @param position Position of player
+     * @param role Role of player
+     * @return Bench player
+     */
     public Player generateBenchPlayer(Position position, Role role){
         return playerGenerator.createPlayer(position, role);
     }
 
+    /**
+     * Generates a bench for a team
+     * @param team Team that this bench belongs to
+     * @return Team with bench players added
+     */
     public Team generateBench(Team team){
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
@@ -60,6 +90,10 @@ public class GenerateTeam {
         return team;
     }
 
+    /**
+     * Generates a god team (5 god players)
+     * @return God team
+     */
     public Team generateGodTeam(){
         Team team = new Team(generateName(), generateCoach());
 
@@ -74,6 +108,10 @@ public class GenerateTeam {
         return generateBench(team);
     }
 
+    /**
+     * Generates a super team (2 superstars, 1 star)
+     * @return Super team
+     */
     public Team generateSuperTeam(){
         Team team = new Team(generateName(), generateCoach());
 
@@ -94,6 +132,10 @@ public class GenerateTeam {
         return generateBench(team);
     }
 
+    /**
+     * Generates a contending team (1-2 superstars / stars)
+     * @return Contending team
+     */
     public Team generateContendingTeam(){
         Team team = new Team(generateName(), generateCoach());
 
@@ -115,6 +157,10 @@ public class GenerateTeam {
         return generateBench(team);
     }
 
+    /**
+     * Generates a playoff team (1-2 stars)
+     * @return Playoff team
+     */
     public Team generatePlayoffTeam(){
         Team team = new Team(generateName(), generateCoach());
 
@@ -134,6 +180,10 @@ public class GenerateTeam {
         return generateBench(team);
     }
 
+    /**
+     * Generates an average team (5 starters)
+     * @return Average team
+     */
     public Team generateAverageTeam(){
         Team team = new Team(generateName(), generateCoach());
 
@@ -148,6 +198,10 @@ public class GenerateTeam {
         return generateBench(team);
     }
 
+    /**
+     * Generates a random team type
+     * @return Type of team
+     */
     public TeamType generateRandomTeamType(){
         int random = new Random().nextInt(200);
         if(random <= 5){ //0-5, very rare
@@ -161,7 +215,12 @@ public class GenerateTeam {
         }
     }
 
-    public Team generateTeamType(TeamType teamType){
+    /**
+     * Generates a team given a team type
+     * @param teamType Type of team
+     * @return Newly generated team
+     */
+    public Team generateTeam(TeamType teamType){
         if(teamType == null){
             teamType = generateRandomTeamType();
         }
@@ -173,4 +232,22 @@ public class GenerateTeam {
             case AVERAGE_TEAM -> generateAverageTeam();
         };
     }
+
+    /**
+     * Creates a completely random team
+     * @return Team
+     */
+    public Team createTeam(){
+        return generateTeam(generateRandomTeamType());
+    }
+
+    /**
+     * Creates a team given a team type
+     * @param type Type of team
+     * @return Team
+     */
+    public Team createTeam(TeamType type){
+        return generateTeam(type);
+    }
+
 }
