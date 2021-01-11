@@ -87,6 +87,7 @@ class GameSimulationTest {
 
     @Test
     void runSimulation() {
-        game.printResults();
+        System.out.println(game.getTeam2().toString());
+        System.out.println(game.getTeam2BoxScore());
     }
 }

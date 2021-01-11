@@ -1,6 +1,7 @@
 package model;
 
 import model.Player.Player;
+import model.Simulations.PlayerStats;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -176,25 +177,54 @@ public class Team {
         return Objects.hash(name, wins, losses, coach, roster);
     }
 
+
     /**
-     * String method for team
-     * @return String of team
+     * Finds the length of longest name in roster array
+     * @return Length of longest name in roster array
+     */
+    public int longestName(){
+        int largest = this.roster.get(0).getName().length();
+        for(Player player : this.roster){
+            if(player.getName().length() > largest){
+                largest = player.getName().length();
+            }
+        }
+        return largest + 5;
+    }
+
+    /**
+     * Generates box score
+     * @return String of box score
      */
     @Override
     public String toString() {
         String coach;
         if(this.coach == null){
-            coach = "None";
+            coach = "No coach";
         } else{
             coach = this.coach.getName();
         }
-        return "Team{" +
-                "name='" + name + '\'' +
-                ", wins=" + wins +
-                ", losses=" + losses +
-                ", coach=" + coach +
-                ", roster=" + roster +
-                '}';
+        StringBuilder teamString = new StringBuilder();
+        int longestName = longestName();
+        teamString.append(" \n");
+        teamString.append(String.format("| %s Team\n", this.name));
+        teamString.append(String.format("| Coach: %s\n", coach));
+        teamString.append("""
+                |
+                |
+                """);
+        teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %20s %20s %5s %5s %6s %6s %12s %10s", "Name",
+                "Role", "Type", "Position", "3", "2", "Reb", "Pass", "In_Defense", "Out_Defense\n"));
+        for(Player player : this.roster){
+            int spacing = longestName - player.getName().length();
+            teamString.append("|\n");
+            teamString.append(String.format("| %s "+"%"+(spacing+5)+"s"+" %20s %20s %5s %5s %6s %6s %12s %10s\n",
+                    player.getName(), player.getRole(), player.getType(), player.getPosition(),
+                    player.getRating().getOutsideShotRating(), player.getRating().getInsideShotRating(),
+                    player.getRating().getReboundRating(), player.getRating().getPassingRating(),
+                    player.getRating().getInsideDefenseRating(), player.getRating().getOutsideDefenseRating()));
+        }
+        return teamString.toString();
     }
 
 }
