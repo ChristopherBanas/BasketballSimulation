@@ -80,6 +80,10 @@ public class PlayerStats {
         return totalPoints;
     }
 
+    public void updatePoints(int totalPoints) {
+        this.totalPoints += totalPoints;
+    }
+
     /**
      * Prints player stats
      * @return String of player stats

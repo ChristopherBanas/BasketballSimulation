@@ -116,7 +116,7 @@ public class Player {
                 Objects.equals(rating, player.rating) &&
                 Objects.equals(role, player.role) &&
                 Objects.equals(position, player.position) &&
-                Objects.equals(team, player.team) &&
+                Objects.equals(team.getName(), player.team.getName()) &&
                 type == player.type;
     }
 
@@ -126,7 +126,7 @@ public class Player {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, rating, type, role, position, team);
+        return Objects.hash(name, age, rating, type, role, position, team.getName());
     }
 
     /**

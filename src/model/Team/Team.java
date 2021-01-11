@@ -265,12 +265,12 @@ public class Team {
                 |
                 |
                 """);
-        teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %20s %20s %5s %5s %6s %6s %12s %10s", "Name",
+        teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s", "Name",
                 "Role", "Type", "Position", "3", "2", "Reb", "Pass", "In_Defense", "Out_Defense\n"));
         for(Player player : this.roster){
             int spacing = longestName - player.getName().length();
             teamString.append("|\n");
-            teamString.append(String.format("| %s "+"%"+(spacing+5)+"s"+" %20s %20s %5s %5s %6s %6s %12s %10s\n",
+            teamString.append(String.format("| %s "+"%"+(spacing+5)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s\n",
                     player.getName(), player.getRole(), player.getType(), player.getPosition(),
                     player.getRating().getOutsideShotRating(), player.getRating().getInsideShotRating(),
                     player.getRating().getReboundRating(), player.getRating().getPassingRating(),

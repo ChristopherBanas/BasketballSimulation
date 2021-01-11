@@ -92,6 +92,18 @@ public class GameSimulation {
     }
 
     /**
+     * Updates a single players stat to determine overtime winner
+     * @param teamStats Team that will win overtime
+     * @return Updated teamStats
+     */
+    public TeamStats overTime(TeamStats teamStats){
+        PlayerStats stats = teamStats.getStatsList().get(0);
+        stats.updatePoints(1); //add a point to a player from winning team
+        teamStats.getStatsList().set(0, stats);
+        return teamStats;
+    }
+
+    /**
      * Runs the simulation by generating individual player stat lines and combining them, then tells game who won
      */
     public void runSimulation() {
@@ -108,8 +120,13 @@ public class GameSimulation {
             team2Stats.updateStats(stats);
         }
 
-        if(team1Stats.getScore() == team2Stats.getScore()){ //tie, re run simulation
-            runSimulation();
+        if(team1Stats.getScore() == team2Stats.getScore()){ //tie, go into overtime
+            int winner = (int) (Math.random() * (2 - 1 + 1) + 1); //randomly pick overtime winner
+            if(winner == 2){
+                team2Stats = overTime(team2Stats);
+            } else{
+                team1Stats = overTime(team1Stats);
+            }
         }
 
         game.setTeam1BoxScore(team1Stats);
