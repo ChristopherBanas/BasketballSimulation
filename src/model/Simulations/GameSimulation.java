@@ -1,6 +1,6 @@
 package model.Simulations;
 
-import model.Game;
+import model.Games.Game;
 import model.Player.Player;
 import model.Player.Role;
 

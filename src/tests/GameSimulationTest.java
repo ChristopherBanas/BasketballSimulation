@@ -1,10 +1,12 @@
 package tests;
 
-import model.*;
+import model.Games.Game;
 import model.Player.Player;
 import model.Player.Position;
 import model.Player.Role;
 import model.Player.Type;
+import model.Team.Coach;
+import model.Team.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -88,6 +90,6 @@ class GameSimulationTest {
     @Test
     void runSimulation() {
         System.out.println(game.getTeam2().toString());
-        System.out.println(game.getTeam2BoxScore());
+        System.out.println(game.getTeam1());
     }
 }

@@ -22,11 +22,10 @@ public class Application {
                 Play options:
                 
                 1) Load league from file
-                2) Create your own team
-                3) Auto generate league
+                2) Auto generate league
                 """);
         String input = "";
-        Set<String> validInputSet = new HashSet<>(Arrays.asList("1", "2", "3"));
+        Set<String> validInputSet = new HashSet<>(Arrays.asList("1", "2")); //set in case more modes are added
         while(!validInputSet.contains(input)){
             System.out.print("> ");
             input = scanner.nextLine();
@@ -36,8 +35,7 @@ public class Application {
         }
         switch (input) {
             case "1" -> System.out.println("Load league from file selected");
-            case "2" -> System.out.println("Create your own team selected");
-            case "3" -> System.out.println("Auto generate league selected");
+            case "2" -> System.out.println("Auto generate league selected");
         }
         BasketballSimulator simulator = new BasketballSimulator(input);
     }

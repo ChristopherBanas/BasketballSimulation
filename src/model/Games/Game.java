@@ -1,7 +1,8 @@
-package model;
+package model.Games;
 
 import model.Simulations.GameSimulation;
 import model.Simulations.TeamStats;
+import model.Team.Team;
 
 import java.util.Objects;
 

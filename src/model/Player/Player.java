@@ -1,6 +1,6 @@
 package model.Player;
 
-import model.Team;
+import model.Team.Team;
 
 import java.util.Objects;
 

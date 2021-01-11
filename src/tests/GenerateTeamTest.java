@@ -1,17 +1,12 @@
 package tests;
 
 import model.Autogeneration.GenerateTeam;
-import model.Autogeneration.TeamType;
 import model.Autogeneration.data.TeamList;
-import model.Game;
 import model.Player.Role;
 import model.Player.Type;
-import model.Team;
-import org.junit.jupiter.api.BeforeAll;
+import model.Team.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 

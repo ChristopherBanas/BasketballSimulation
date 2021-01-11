@@ -1,7 +1,7 @@
 package model.Autogeneration;
 
 import model.Autogeneration.data.NameLists;
-import model.Coach;
+import model.Team.Coach;
 
 import java.util.HashSet;
 import java.util.Random;

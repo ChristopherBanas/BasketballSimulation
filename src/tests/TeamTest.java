@@ -1,10 +1,11 @@
 package tests;
 
-import model.*;
 import model.Player.Player;
 import model.Player.Position;
 import model.Player.Role;
 import model.Player.Type;
+import model.Team.Coach;
+import model.Team.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

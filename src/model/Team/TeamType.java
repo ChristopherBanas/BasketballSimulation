@@ -1,4 +1,4 @@
-package model.Autogeneration;
+package model.Team;
 
 /**
  * Desc: Enum for what type a team is

@@ -1,4 +1,4 @@
-package model;
+package model.Team;
 
 import java.util.Objects;
 

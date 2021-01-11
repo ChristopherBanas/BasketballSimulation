@@ -89,7 +89,7 @@ public class GeneratePlayer {
             case 1 -> Type.ALL_AROUND;
             case 2 -> Type.THREE_LEVEL_SCORER;
             case 3 -> Type.PERIMETER_DEFENDER;
-            case 4 -> Type.INSIDE_OUTSIDE_DEFENDER;
+            case 4 -> Type.IN_OUT_DEFENDER;
             case 5 -> Type.PURE_SHOOTER;
             case 6 -> Type.OFFENSIVE_SUPERSTAR; //superstar only types from range 6-9
             case 7 -> Type.BALANCED_SUPERSTAR;
@@ -116,7 +116,7 @@ public class GeneratePlayer {
             case 1 -> Type.ALL_AROUND;
             case 2 -> Type.THREE_LEVEL_SCORER;
             case 3 -> Type.PERIMETER_DEFENDER;
-            case 4 -> Type.INSIDE_OUTSIDE_DEFENDER;
+            case 4 -> Type.IN_OUT_DEFENDER;
             case 5 -> Type.INSIDE_DEFENDER;
             case 6 -> Type.PURE_SHOOTER;
             case 7 -> Type.BALANCED_SUPERSTAR; //superstar only types from range 7-10
@@ -142,7 +142,7 @@ public class GeneratePlayer {
         return switch (random){
             case 0 -> Type.ENERGETIC_REBOUNDER;
             case 1 -> Type.POST_PLAYER;
-            case 2 -> Type.INSIDE_OUTSIDE_DEFENDER;
+            case 2 -> Type.IN_OUT_DEFENDER;
             case 3 -> Type.PERIMETER_DEFENDER;
             case 4 -> Type.INSIDE_DEFENDER;
             case 5 -> Type.PURE_SHOOTER;

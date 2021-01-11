@@ -35,7 +35,7 @@ public class Rating {
             case ENERGETIC_REBOUNDER -> generateFields(9,5,4,5,9,9);
             case THREE_LEVEL_SCORER -> generateFields(5,5,7,9,9,7);
             case POST_PLAYER -> generateFields(9,4,5,7,9,8);
-            case INSIDE_OUTSIDE_DEFENDER -> generateFields(8,8,7,4,4,9);
+            case IN_OUT_DEFENDER -> generateFields(8,8,7,4,4,9);
             case PERIMETER_DEFENDER -> generateFields(6,9,9,8,4,8); //TODO
             case INSIDE_DEFENDER -> generateFields(9,6,8,4,8,9);
             case PURE_SHOOTER -> generateFields(4,7,9,9,9,8);

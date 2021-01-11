@@ -1,12 +1,13 @@
 package model.Autogeneration;
 
 import model.Autogeneration.data.TeamList;
-import model.Coach;
+import model.Team.Coach;
 import model.Player.Player;
 import model.Player.Position;
 import model.Player.Role;
 import model.Player.Type;
-import model.Team;
+import model.Team.Team;
+import model.Team.TeamType;
 
 import java.util.*;
 
@@ -95,7 +96,7 @@ public class GenerateTeam {
      * @return God team
      */
     public Team generateGodTeam(){
-        Team team = new Team(generateName(), generateCoach());
+        Team team = new Team(generateName(), generateCoach(), TeamType.GOD_TEAM);
 
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
@@ -113,7 +114,7 @@ public class GenerateTeam {
      * @return Super team
      */
     public Team generateSuperTeam(){
-        Team team = new Team(generateName(), generateCoach());
+        Team team = new Team(generateName(), generateCoach(), TeamType.SUPER_TEAM);
 
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
@@ -137,7 +138,7 @@ public class GenerateTeam {
      * @return Contending team
      */
     public Team generateContendingTeam(){
-        Team team = new Team(generateName(), generateCoach());
+        Team team = new Team(generateName(), generateCoach(), TeamType.CONTENDING_TEAM);
 
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
@@ -162,7 +163,7 @@ public class GenerateTeam {
      * @return Playoff team
      */
     public Team generatePlayoffTeam(){
-        Team team = new Team(generateName(), generateCoach());
+        Team team = new Team(generateName(), generateCoach(), TeamType.PLAYOFF_TEAM);
 
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
@@ -185,7 +186,7 @@ public class GenerateTeam {
      * @return Average team
      */
     public Team generateAverageTeam(){
-        Team team = new Team(generateName(), generateCoach());
+        Team team = new Team(generateName(), generateCoach(), TeamType.AVERAGE_TEAM);
 
         ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
                 Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));

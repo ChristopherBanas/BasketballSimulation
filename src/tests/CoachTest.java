@@ -1,7 +1,7 @@
 package tests;
 
-import model.Coach;
-import model.Team;
+import model.Team.Coach;
+import model.Team.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

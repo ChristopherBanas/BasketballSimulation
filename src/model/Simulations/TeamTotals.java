@@ -1,7 +1,7 @@
 package model.Simulations;
 
 import model.Player.Player;
-import model.Team;
+import model.Team.Team;
 
 /**
  * Desc: Class for team totals of a simulation

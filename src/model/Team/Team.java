@@ -1,7 +1,6 @@
-package model;
+package model.Team;
 
 import model.Player.Player;
-import model.Simulations.PlayerStats;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -22,6 +21,8 @@ public class Team {
     private Coach coach;
     /** Roster of team */
     private ArrayList<Player> roster;
+    /** Type of team */
+    private TeamType type;
 
     /**
      * Constructor for team when no coach has been assigned
@@ -44,6 +45,21 @@ public class Team {
         this.wins = 0;
         this.losses = 0;
         this.coach = coach;
+        this.roster = new ArrayList<>();
+        coach.setTeam(this);
+    }
+
+    /**
+     * Constructor for team when a coach has been assigned and type is known
+     * @param name Name of team
+     * @param coach Coach for team
+     */
+    public Team(String name, Coach coach, TeamType type){
+        this.name = name;
+        this.wins = 0;
+        this.losses = 0;
+        this.coach = coach;
+        this.type = type;
         this.roster = new ArrayList<>();
         coach.setTeam(this);
     }
@@ -120,6 +136,39 @@ public class Team {
     }
 
     /**
+     * Getter for team type
+     * @return Type of team
+     */
+    public TeamType getType() {
+        return type;
+    }
+
+    /**
+     * Updates team type
+     */
+    public void updateType() {
+        int numOfSuper = 0;
+        int numOfStar = 0;
+        for(Player player : this.roster){
+            switch (player.getRole()){
+                case SUPERSTAR -> numOfSuper += 1;
+                case STAR -> numOfStar += 1;
+            }
+        }
+        if(numOfSuper > 2){ //3+ superstars
+            this.type = TeamType.GOD_TEAM;
+        } else if(numOfSuper >= 2 && numOfStar >= 1){ //2+ superstars and 1+ star
+            this.type = TeamType.SUPER_TEAM;
+        } else if(numOfSuper <= 2 && numOfSuper > 0 && numOfStar <= 1){ //1-2 superstars and 0-1 stars
+            this.type = TeamType.CONTENDING_TEAM;
+        } else if(numOfStar == 1 || numOfStar == 2){ //1 or 2 stars
+            this.type = TeamType.PLAYOFF_TEAM;
+        } else{ //pure starters
+            this.type = TeamType.AVERAGE_TEAM;
+        }
+    }
+
+    /**
      * Getter for team roster
      * @return Team roster
      */
@@ -134,6 +183,7 @@ public class Team {
     public void addPlayer(Player player) {
         roster.add(player);
         player.setTeam(this);
+        this.updateType();
     }
 
     public void addMultiplePlayers(ArrayList<Player> players){
@@ -164,6 +214,7 @@ public class Team {
         return wins == team.wins &&
                 losses == team.losses &&
                 Objects.equals(name, team.name) &&
+                Objects.equals(type, team.type) &&
                 Objects.equals(coach, team.coach) &&
                 Objects.equals(roster, team.roster);
     }
@@ -174,7 +225,7 @@ public class Team {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, wins, losses, coach, roster);
+        return Objects.hash(name, wins, losses, coach, type, roster);
     }
 
 
@@ -208,6 +259,7 @@ public class Team {
         int longestName = longestName();
         teamString.append(" \n");
         teamString.append(String.format("| %s Team\n", this.name));
+        teamString.append(String.format("| %s\n", this.type));
         teamString.append(String.format("| Coach: %s\n", coach));
         teamString.append("""
                 |

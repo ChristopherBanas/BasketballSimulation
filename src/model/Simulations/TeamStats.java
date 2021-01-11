@@ -1,7 +1,7 @@
 package model.Simulations;
 
 
-import model.Team;
+import model.Team.Team;
 
 import java.util.ArrayList;
 import java.util.Objects;
