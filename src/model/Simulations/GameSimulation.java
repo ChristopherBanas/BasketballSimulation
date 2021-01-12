@@ -108,8 +108,9 @@ public class GameSimulation {
      */
     public TeamStats overTime(TeamStats teamStats){
         PlayerStats stats = teamStats.getStatsList().get(0);
+        teamStats.removeStat(stats);
         stats.updatePoints(1); //add a point to a player from winning team
-        teamStats.getStatsList().set(0, stats);
+        teamStats.updateStats(stats);
         return teamStats;
     }
 

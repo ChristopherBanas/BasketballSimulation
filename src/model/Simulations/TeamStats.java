@@ -138,6 +138,19 @@ public class TeamStats {
     }
 
     /**
+     * Remove a stat from team stats
+     * @param stats Stats to be removed
+     */
+    public void removeStat(PlayerStats stats){
+        statsList.remove(stats);
+        score -= stats.getTotalPoints();
+        rebounds -= stats.getRebounds();
+        assists -= stats.getAssists();
+        threePointers -= stats.getThreePointers();
+        fieldGoals -= stats.getFieldGoals();
+    }
+
+    /**
      * Getter for stats list
      * @return Stats list
      */

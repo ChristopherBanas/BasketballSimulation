@@ -24,6 +24,8 @@ public class Team {
     private ArrayList<Player> roster;
     /** Type of team */
     private TeamType type;
+    /** Championships won by team */
+    private int championships;
 
     /**
      * Constructor for team when no coach has been assigned
@@ -34,6 +36,7 @@ public class Team {
         this.wins = 0;
         this.losses = 0;
         this.roster = new ArrayList<>();
+        this.championships = 0;
     }
 
     /**
@@ -171,6 +174,21 @@ public class Team {
     }
 
     /**
+     * Getter for team's championships
+     * @return Number of championships
+     */
+    public int getChampionships() {
+        return championships;
+    }
+
+    /**
+     * Increase amount of championships a team has won
+     */
+    public void addChampionship() {
+        this.championships += 1;
+    }
+
+    /**
      * Getter for team roster
      * @return Team roster
      */
@@ -218,6 +236,7 @@ public class Team {
                 Objects.equals(name, team.name) &&
                 Objects.equals(type, team.type) &&
                 Objects.equals(coach, team.coach) &&
+                Objects.equals(championships, team.championships) &&
                 Objects.equals(roster, team.roster);
     }
 
@@ -227,7 +246,7 @@ public class Team {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, wins, losses, coach, type, roster);
+        return Objects.hash(name, wins, losses, coach, type, roster, championships);
     }
 
 
@@ -260,9 +279,10 @@ public class Team {
         StringBuilder teamString = new StringBuilder();
         int longestName = longestName();
         teamString.append(" \n");
-        teamString.append(String.format("| %s Team\n", this.name));
-        teamString.append(String.format("| %s\n", this.type));
+        teamString.append(String.format("| Team: %s\n", this.name));
+        teamString.append(String.format("| Team type: %s\n", this.type));
         teamString.append(String.format("| Coach: %s\n", coach));
+        teamString.append(String.format("| Championships: %s\n", championships));
         teamString.append("|\n");
         teamString.append("|\n");
         teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s", "Name",

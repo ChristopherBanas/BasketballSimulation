@@ -10,6 +10,6 @@ import java.util.List;
 public class TeamList {
 
     public static String [] teamNameList = {
-            "Lakers", "Celtics", "Sixers", "Spurs"};
+            "Lakers", "Celtics", "Sixers", "Warriors"};
 
 }
