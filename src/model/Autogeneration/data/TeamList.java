@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class TeamList {
 
-    public static ArrayList<String> teamNameList = new ArrayList<>(List.of(
-            "Lakers", "Celtics", "Sixers", "Spurs"
-    ));
+    public static String [] teamNameList = {
+            "Lakers", "Celtics", "Sixers", "Spurs"};
+
 }

@@ -12,9 +12,11 @@ public class BasketballSimulator {
 
     public BasketballSimulator(String option){
         this.teamGenerator = new GenerateTeam();
-        switch (option){ //option received from Application
-            case "1" -> startFromFile();
-            case "2" -> startRandom();
+        //option received from Application
+        if ("1".equals(option)) {
+            startFromFile();
+        } else if ("2".equals(option)) {
+            startRandom();
         }
     }
 

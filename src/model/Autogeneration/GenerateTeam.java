@@ -44,7 +44,7 @@ public class GenerateTeam {
         int listLength = 4;
         while (name.equals("")){
             int random = new Random().nextInt(listLength);
-            name = TeamList.teamNameList.get(random); //O(1) time complexity
+            name = TeamList.teamNameList[random]; //O(1) time complexity
             if(nameSet.contains(name)){ //O(1) time complexity
                 name = "";
             }
@@ -59,6 +59,20 @@ public class GenerateTeam {
      */
     public Coach generateCoach(){
         return coachGenerator.createCoach();
+    }
+
+    /**
+     * Generates a position list
+     * @return List of positions
+     */
+    public ArrayList<Position> generatePositionList(){
+        List<Position> positions = new ArrayList<>();
+        positions.add(Position.POINT_GUARD);
+        positions.add(Position.SHOOTING_GUARD);
+        positions.add(Position.SMALL_FORWARD);
+        positions.add(Position.POWER_FORWARD);
+        positions.add(Position.CENTER);
+        return new ArrayList<>(positions);
     }
 
     /**
@@ -77,8 +91,7 @@ public class GenerateTeam {
      * @return Team with bench players added
      */
     public Team generateBench(Team team){
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         for(int i=0; i<ROSTER_SIZE-5; i++){ //create bench
             Position position = positionList.remove(new Random().nextInt(positionList.size()));
@@ -98,8 +111,7 @@ public class GenerateTeam {
     public Team generateGodTeam(){
         Team team = new Team(generateName(), generateCoach(), TeamType.GOD_TEAM);
 
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         for(int i=0; i<5; i++){ //create starting 5
             Position position = positionList.remove(new Random().nextInt(positionList.size()));
@@ -116,8 +128,7 @@ public class GenerateTeam {
     public Team generateSuperTeam(){
         Team team = new Team(generateName(), generateCoach(), TeamType.SUPER_TEAM);
 
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         for(int i=0; i<5; i++){ //create starting 5
             Position position = positionList.remove(new Random().nextInt(positionList.size()));
@@ -140,8 +151,7 @@ public class GenerateTeam {
     public Team generateContendingTeam(){
         Team team = new Team(generateName(), generateCoach(), TeamType.CONTENDING_TEAM);
 
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         int numOfSuperstars = (int) (Math.random() * (2 - 1 + 1) + 1);
         for(int i=0; i<5; i++){ //create starting 5
@@ -165,8 +175,7 @@ public class GenerateTeam {
     public Team generatePlayoffTeam(){
         Team team = new Team(generateName(), generateCoach(), TeamType.PLAYOFF_TEAM);
 
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         int numOfStars = (int) (Math.random() * (2 - 1 + 1) + 1);
         for(int i=0; i<5; i++){ //create starting 5
@@ -188,8 +197,7 @@ public class GenerateTeam {
     public Team generateAverageTeam(){
         Team team = new Team(generateName(), generateCoach(), TeamType.AVERAGE_TEAM);
 
-        ArrayList<Position> positionList = new ArrayList<>(List.of(Position.POINT_GUARD, Position.SHOOTING_GUARD,
-                Position.SMALL_FORWARD, Position.POWER_FORWARD, Position.CENTER));
+        ArrayList<Position> positionList = generatePositionList();
 
         for(int i=0; i<5; i++){ //create starting 5
             Position position = positionList.remove(new Random().nextInt(positionList.size()));
@@ -225,13 +233,20 @@ public class GenerateTeam {
         if(teamType == null){
             teamType = generateRandomTeamType();
         }
-        return switch (teamType){
-            case GOD_TEAM -> generateGodTeam();
-            case SUPER_TEAM -> generateSuperTeam();
-            case CONTENDING_TEAM -> generateContendingTeam();
-            case PLAYOFF_TEAM -> generatePlayoffTeam();
-            case AVERAGE_TEAM -> generateAverageTeam();
-        };
+        switch (teamType) {
+            case GOD_TEAM:
+                return generateGodTeam();
+            case SUPER_TEAM:
+                return generateSuperTeam();
+            case CONTENDING_TEAM:
+                return generateContendingTeam();
+            case PLAYOFF_TEAM:
+                return generatePlayoffTeam();
+            case AVERAGE_TEAM:
+                return generateAverageTeam();
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 
     /**

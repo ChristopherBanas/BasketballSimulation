@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class NameLists {
 
-    public static List<String> firstNameList = new ArrayList<>(List.of(
+    public static String[] firstNameList = {
             "Aamir",
             "Aaron",
             "Abbey",
@@ -2952,9 +2952,9 @@ public class NameLists {
             "Zorro",
             "Rahul",
             "Shumeet",
-            "Vibhu"));
+            "Vibhu"};
 
-    public static List<String> lastNameList = new ArrayList<>(List.of(
+    public static String [] lastNameList = {
             "Smith",
             "Johnson",
             "Williams",
@@ -5898,5 +5898,5 @@ public class NameLists {
             "Isaac",
             "Bliss",
             "Reaves",
-            "Flint"));
+            "Flint"};
 }

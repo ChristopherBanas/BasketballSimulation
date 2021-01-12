@@ -210,10 +210,8 @@ public class TeamStats {
         int longestName = longestName();
         boxScore.append(" \n");
         boxScore.append(String.format("| %s Box Score\n", team.getName()));
-        boxScore.append("""
-                |
-                |
-                """);
+        boxScore.append("|\n");
+        boxScore.append("|\n");
         boxScore.append(String.format("| %s "+"%"+longestName+"s"+" %10s %10s %5s %6s", "Name", "Points",
                 "Rebounds", "Assists", "3PM", "FGM\n"));
         for(PlayerStats stats : statsList){

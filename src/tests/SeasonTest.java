@@ -19,8 +19,12 @@ class SeasonTest {
     @BeforeEach
     void setUp() {
         GenerateTeam generator = new GenerateTeam();
-        ArrayList<Team> teamList = new ArrayList<>(List.of(generator.createTeam(), generator.createTeam(),
-                generator.createTeam(), generator.createTeam()));
+        List<Team> teams = new ArrayList<>();
+        teams.add(generator.createTeam());
+        teams.add(generator.createTeam());
+        teams.add(generator.createTeam());
+        teams.add(generator.createTeam());
+        ArrayList<Team> teamList = new ArrayList<>(teams);
         season = new Season(teamList, 2020);
     }
 

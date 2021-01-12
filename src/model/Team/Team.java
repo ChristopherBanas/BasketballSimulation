@@ -1,6 +1,7 @@
 package model.Team;
 
 import model.Player.Player;
+import model.Player.Role;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -150,9 +151,10 @@ public class Team {
         int numOfSuper = 0;
         int numOfStar = 0;
         for(Player player : this.roster){
-            switch (player.getRole()){
-                case SUPERSTAR -> numOfSuper += 1;
-                case STAR -> numOfStar += 1;
+            if (player.getRole() == Role.SUPERSTAR) {
+                numOfSuper += 1;
+            } else if (player.getRole() == Role.STAR) {
+                numOfStar += 1;
             }
         }
         if(numOfSuper > 2){ //3+ superstars
@@ -261,10 +263,8 @@ public class Team {
         teamString.append(String.format("| %s Team\n", this.name));
         teamString.append(String.format("| %s\n", this.type));
         teamString.append(String.format("| Coach: %s\n", coach));
-        teamString.append("""
-                |
-                |
-                """);
+        teamString.append("|\n");
+        teamString.append("|\n");
         teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s", "Name",
                 "Role", "Type", "Position", "3", "2", "Reb", "Pass", "In_Defense", "Out_Defense\n"));
         for(Player player : this.roster){

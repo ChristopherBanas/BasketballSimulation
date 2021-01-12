@@ -90,7 +90,9 @@ public class Season {
             statsList.add(stats);
             this.playerStatsMap.put(stats.getPlayer(), statsList);
         } else{ //not in map yet
-            this.playerStatsMap.put(stats.getPlayer(), new ArrayList<>(List.of(stats)));
+            List<PlayerStats> playerStats = new ArrayList<>();
+            playerStats.add(stats);
+            this.playerStatsMap.put(stats.getPlayer(), new ArrayList<>(playerStats));
         }
     }
 

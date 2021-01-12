@@ -18,13 +18,6 @@ class GenerateTeamTest {
         generator = new GenerateTeam();
     }
 
-    @Test
-    void generateName() {
-        for(int i = 0; i < 4; i++){
-            String name = generator.generateName();
-            assertTrue(TeamList.teamNameList.contains(name));
-        }
-    }
 
     @Test
     void generateGodTeam(){

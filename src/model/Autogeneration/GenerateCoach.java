@@ -31,8 +31,8 @@ public class GenerateCoach {
         int listLength = 2943; //length of arrays in NameLists
         while (name.equals("")){ //will break loop if name is not in nameSet
             int random = new Random().nextInt(listLength);
-            String firstName = NameLists.firstNameList.get(random); //O(1) time complexity
-            String lastName = NameLists.lastNameList.get(random); //O(1) time complexity
+            String firstName = NameLists.firstNameList[random];
+            String lastName = NameLists.lastNameList[random];
             name = firstName + " " + lastName;
             if(nameSet.contains(name)){ //O(1) time complexity
                 name = "";
