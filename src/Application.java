@@ -9,7 +9,7 @@ public class Application {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-- Programmed by Christopher Banas --");
+        System.out.println("-- Programmed by Christopher Banas --"); //TODO Make this look better
         System.out.println("------- BASKETBALL SIMULATOR --------");
         System.out.println(" ");
         System.out.println("League restrictions as of version 1.0:");
@@ -20,7 +20,7 @@ public class Application {
         System.out.println(" ");
         System.out.println("Play options: ");
         System.out.println(" ");
-        System.out.println("1) Load league from file");
+        System.out.println("1) Load league from file (not implemented yet)");
         System.out.println("2) Auto generate league");
         String input = "";
         Set<String> validInputSet = new HashSet<>(Arrays.asList("1", "2")); //set in case more modes are added
