@@ -18,28 +18,28 @@ public class Season {
     private ArrayList<Team> teamList;
     /** Map of Players with a list of their game stats */
     private HashMap<Player, ArrayList<PlayerStats>> playerStatsMap;
-    /** Map of player with high point avg during the season */
-    private HashMap<Player, Double> highestPointMap;
-    /** Map of player with high reb avg during the season */
-    private HashMap<Player, Double> highestRebMap;
-    /** Map of player with high ast avg during the season */
-    private HashMap<Player, Double> highestAstMap;
-    /** Map of player with most 3pm during the season */
-    private HashMap<Player, Integer> highestThreeMap;
+    /** Season leader with highest point avg during the season */
+    private SeasonLeader pointsLeader;
+    /** Season leader with highest reb avg during the season */
+    private SeasonLeader reboundsLeader;
+    /** Season leader with highest ast avg during the season */
+    private SeasonLeader assistsLeader;
+    /** Season leader with most 3pm during the season */
+    private SeasonLeader threeLeader;
     /** Playoffs for this season */
     private Playoffs playoffs;
     /** Season year */
-    private int year;
+    private final int year;
 
-
+    /**
+     * Constructor for Season
+     * @param teamList List of teams in this season
+     * @param year Year of this season
+     */
     public Season(ArrayList<Team> teamList, int year){
         this.gameList = new ArrayList<>();
         this.teamList = teamList;
         this.playerStatsMap = new HashMap<>();
-        this.highestPointMap = new HashMap<>();
-        this.highestRebMap = new HashMap<>();
-        this.highestAstMap = new HashMap<>();
-        this.highestThreeMap = new HashMap<>();
         this.year = year;
     }
 
@@ -129,8 +129,7 @@ public class Season {
             double avgPoints = (double) pointsMap.get(player) / (this.teamList.size()*3); //avg
             if(avgPoints > highest){
                 highest = avgPoints;
-                this.highestPointMap.clear();
-                this.highestPointMap.put(player, round(avgPoints));
+                this.pointsLeader = new SeasonLeader(player, round(avgPoints), LeaderType.points);
             }
         }
 
@@ -139,8 +138,7 @@ public class Season {
             double avgRebs = (double) reboundsMap.get(player) / (this.teamList.size()*3); //avg
             if(avgRebs > highest){
                 highest = avgRebs;
-                this.highestRebMap.clear();
-                this.highestRebMap.put(player, round(avgRebs));
+                this.reboundsLeader = new SeasonLeader(player, round(avgRebs), LeaderType.rebounds);
             }
         }
 
@@ -149,8 +147,7 @@ public class Season {
             double avgAsts = (double) assistsMap.get(player) / (this.teamList.size()*3); //avg
             if(avgAsts > highest){
                 highest = avgAsts;
-                this.highestAstMap.clear();
-                this.highestAstMap.put(player, round(avgAsts));
+                this.assistsLeader = new SeasonLeader(player, round(avgAsts), LeaderType.assists);
             }
         }
 
@@ -159,8 +156,7 @@ public class Season {
             int threes = threeMap.get(player);
             if(threes > highest){
                 highest = threes;
-                this.highestThreeMap.clear();
-                this.highestThreeMap.put(player, threes);
+                this.threeLeader = new SeasonLeader(player, threes, LeaderType.threes);
             }
         }
     }
@@ -183,6 +179,7 @@ public class Season {
         return map;
     }
 
+
     /**
      * Getter for games list
      * @return List of games during this season
@@ -200,35 +197,35 @@ public class Season {
     }
 
     /**
-     * Getter for highest points per game map
-     * @return Map containing player who averaged most points per game
+     * Getter for highest points per game object
+     * @return SeasonLeader containing player who averaged most points per game
      */
-    public HashMap<Player, Double> getHighestPointMap() {
-        return highestPointMap;
+    public SeasonLeader getPointsLeader() {
+        return pointsLeader;
     }
 
     /**
-     * Getter for highest rebounds per game map
-     * @return Map containing player who averaged most rebounds per game
+     * Getter for highest rebounds per game object
+     * @return SeasonLeader containing player who averaged most rebounds per game
      */
-    public HashMap<Player, Double> getHighestRebMap() {
-        return highestRebMap;
+    public SeasonLeader getReboundsLeader() {
+        return reboundsLeader;
     }
 
     /**
-     * Getter for highest assists per game map
-     * @return Map containing player who averaged most assists per game
+     * Getter for highest assists per game object
+     * @return SeasonLeader containing player who averaged most assists per game
      */
-    public HashMap<Player, Double> getHighestAstMap() {
-        return highestAstMap;
+    public SeasonLeader getAssistsLeader() {
+        return assistsLeader;
     }
 
     /**
-     * Getter for most threes per season map
-     * @return Map containg player who scored most threes during the season
+     * Getter for most threes per season object
+     * @return SeasonLeader containing player who scored most threes during the season
      */
-    public HashMap<Player, Integer> getHighestThreeMap() {
-        return highestThreeMap;
+    public SeasonLeader getThreeLeader() {
+        return threeLeader;
     }
 
     /**
@@ -240,13 +237,67 @@ public class Season {
     }
 
     /**
+     * Getter for this seasons playoffs
+     * @return Playoffs
+     */
+    public Playoffs getPlayoffs() {
+        return playoffs;
+    }
+
+    /**
+     * Prints out end season stats
+     */
+    public void endSeason(){
+        Team lakers = null, warriors = null, celtics = null, sixers = null;
+        for(Team team : teamList){
+            switch (team.getName()){
+                case "Lakers":
+                    lakers = team;
+                    break;
+                case "Warriors":
+                    warriors = team;
+                    break;
+                case "Celtics":
+                    celtics = team;
+                    break;
+                case "Sixers":
+                    sixers = team;
+            }
+        }
+        String endString = "| End season results\n" +
+                "|\n" +
+                "| Records:\n" +
+                String.format("| WEST: Lakers (%s-%s), Warriors (%s-%s)\n", lakers.getWins(), lakers.getLosses(),
+                        warriors.getWins(), warriors.getLosses()) +
+                String.format("| EAST: Sixers (%s-%s), Celtics (%s-%s)\n", sixers.getWins(), sixers.getLosses(),
+                        celtics.getWins(), celtics.getLosses()) +
+                "|\n" +
+                "| Season leaders:\n" +
+                "|\n" +
+                this.pointsLeader.toString() +
+                this.reboundsLeader.toString() +
+                this.assistsLeader.toString() +
+                this.threeLeader.toString();
+        System.out.println(endString);
+    }
+
+    /**
      * Simulates this season
      */
-    public void simulate(){
+    public void simulateSeason(){
         arrangeGames();
         playGames();
         parseGameStats();
         parseSeasonStats();
+        endSeason();
+    }
+
+    /**
+     * Simulates playoffs for this season
+     */
+    public void simulatePlayoffs(){
+        this.playoffs = new Playoffs(this.teamList, this.year);
+        playoffs.simulate();
     }
 
 

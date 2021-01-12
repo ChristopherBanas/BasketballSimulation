@@ -45,10 +45,7 @@ class SeasonTest {
 
     @Test
     void parseSeasonStats(){
-        season.simulate();
-        System.out.println("pts" + season.getHighestPointMap().keySet() + "\n"+season.getHighestPointMap().values());
-        System.out.println("reb" + season.getHighestRebMap().keySet() + "\n"+season.getHighestRebMap().values());
-        System.out.println("ast" + season.getHighestAstMap().keySet() + "\n"+season.getHighestAstMap().values());
-        System.out.println("3" + season.getHighestThreeMap().keySet() + "\n"+season.getHighestThreeMap().values());
+        season.simulateSeason();
+        season.simulatePlayoffs();
     }
 }

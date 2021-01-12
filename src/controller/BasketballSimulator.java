@@ -3,15 +3,16 @@ package controller;
 import model.Autogeneration.GenerateTeam;
 import model.Team.Team;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class BasketballSimulator {
 
     GenerateTeam teamGenerator;
-
+    ArrayList<Team> teamList;
 
     public BasketballSimulator(String option){
         this.teamGenerator = new GenerateTeam();
+        this.teamList = new ArrayList<>();
         //option received from Application
         if ("1".equals(option)) {
             startFromFile();
@@ -26,12 +27,52 @@ public class BasketballSimulator {
 
 
     public void startRandom(){
-        ArrayList<Team> teamList = new ArrayList<>();
         for(int i = 0; i<4; i++){ //generate 4 teams
-            teamList.add(teamGenerator.createTeam());
+            this.teamList.add(teamGenerator.createTeam());
         }
-        for(Team team : teamList){
+        for(Team team : this.teamList){
             System.out.println(team);
         }
+        chooseTeam();
+    }
+
+    public void chooseTeam(){
+        Set<String> lakersSet = new HashSet<>(Arrays.asList("lakers", "Lakers", "l", "L", "laker", "Laker", "LAKERS"));
+        Set<String> warriorsSet = new HashSet<>(Arrays.asList("warriors", "Warriors", "w", "W", "warrior", "Warrior",
+                "WARRIORS"));
+        Set<String> sixersSet = new HashSet<>(Arrays.asList("sixers", "Sixers", "s", "S", "six", "Six", "76ers",
+                "SIXERS"));
+        Set<String> cetlicsSet = new HashSet<>(Arrays.asList("celtics", "Celtics", "c", "C", "celtic", "Celtic",
+                "CELTICS"));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter team you wish to monitor");
+        String input = "";
+        while(!lakersSet.contains(input) || !warriorsSet.contains(input) || !sixersSet.contains(input) ||
+                !cetlicsSet.contains(input)){
+            System.out.print("> ");
+            input = scanner.nextLine();
+            if(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
+                    !cetlicsSet.contains(input)){
+                System.out.println("Error: Enter correct team name");
+            }
+        }
+        if (lakersSet.contains(input)){
+            Team chosenTeam = findTeam("Lakers");
+        } else if (warriorsSet.contains(input)){
+            Team chosenTeam = findTeam("Warriors");
+        } else if (sixersSet.contains(input)){
+            Team chosenTeam = findTeam("Sixers");
+        } else{ //celtics
+            Team chosenTeam = findTeam("Celtics");
+        }
+    }
+
+    public Team findTeam(String name){
+        for(Team team : this.teamList){
+            if(team.getName().equals(name)){
+                return team;
+            }
+        }
+        return null;
     }
 }

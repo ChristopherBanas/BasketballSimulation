@@ -1,5 +1,13 @@
 package model.Games;
 
+import model.Team.Team;
+
+import java.util.ArrayList;
+
 public class League {
-    //holds all of the teams along with array of seasons and league total stats
+
+    /** List of teams during this season */
+    private ArrayList<Team> teamList;
+    /** List of seasons that have occurred in this league */
+    private ArrayList<Season> seasonList;
 }
