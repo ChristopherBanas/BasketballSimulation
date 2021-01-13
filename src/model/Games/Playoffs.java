@@ -16,6 +16,8 @@ public class Playoffs {
     private Team champion;
     /** Final round of playoff results */
     private PlayoffRound championshipRound;
+    /** List of games during playoffs */
+    private ArrayList<Game> gameList;
     /** Lakers team */
     private Team lakers;
     /** Warriors team */
@@ -32,6 +34,7 @@ public class Playoffs {
      */
     public Playoffs(ArrayList<Team> teams, int year){
         this.year = year;
+        this.gameList = new ArrayList<>();
         for(Team team : teams){
             switch (team.getName()) {
                 case "Lakers":
@@ -62,6 +65,7 @@ public class Playoffs {
         while(team1Wins < 4 && team2Wins < 4){ //loop until a team has 4 wins
             Game game = new Game(team1, team2);
             game.play();
+            this.gameList.add(game);
             if(game.getWinner().getName().equals(team1.getName())){ //team1 is winner
                 team1Wins += 1;
             } else {
@@ -116,5 +120,13 @@ public class Playoffs {
      */
     public PlayoffRound getChampionshipRound() {
         return championshipRound;
+    }
+
+    /**
+     * Getter for games list
+     * @return List of games during playoffs
+     */
+    public ArrayList<Game> getGameList() {
+        return gameList;
     }
 }

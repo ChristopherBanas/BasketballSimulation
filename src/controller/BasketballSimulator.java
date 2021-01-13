@@ -1,6 +1,7 @@
 package controller;
 
 import model.Autogeneration.GenerateTeam;
+import model.Games.League;
 import model.Team.Team;
 
 import java.util.*;
@@ -19,6 +20,7 @@ public class BasketballSimulator {
         } else if ("2".equals(option)) {
             startRandom();
         }
+
     }
 
     public void startFromFile(){
@@ -47,7 +49,7 @@ public class BasketballSimulator {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter team you wish to monitor");
         String input = "";
-        while(!lakersSet.contains(input) || !warriorsSet.contains(input) || !sixersSet.contains(input) ||
+        while(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
                 !cetlicsSet.contains(input)){
             System.out.print("> ");
             input = scanner.nextLine();
@@ -56,15 +58,17 @@ public class BasketballSimulator {
                 System.out.println("Error: Enter correct team name");
             }
         }
+        Team chosenTeam = null;
         if (lakersSet.contains(input)){
-            Team chosenTeam = findTeam("Lakers");
+            chosenTeam = findTeam("Lakers");
         } else if (warriorsSet.contains(input)){
-            Team chosenTeam = findTeam("Warriors");
+            chosenTeam = findTeam("Warriors");
         } else if (sixersSet.contains(input)){
-            Team chosenTeam = findTeam("Sixers");
+            chosenTeam = findTeam("Sixers");
         } else{ //celtics
-            Team chosenTeam = findTeam("Celtics");
+            chosenTeam = findTeam("Celtics");
         }
+        startLeague(chosenTeam);
     }
 
     public Team findTeam(String name){
@@ -74,5 +78,10 @@ public class BasketballSimulator {
             }
         }
         return null;
+    }
+
+    public void startLeague(Team userTeam){
+        League league = new League(this.teamList, userTeam);
+        league.simulateNewSeason();
     }
 }

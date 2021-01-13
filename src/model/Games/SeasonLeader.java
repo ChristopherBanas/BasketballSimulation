@@ -32,6 +32,7 @@ public class SeasonLeader {
         } else{
             top = String.format("| Leader in %s per game\n", this.type);
         }
-        return  top + String.format("| %s - %s\n", this.player.getName(), this.amount) + bottom;
+        return  top + String.format("| %s (%s)- %s\n", this.player.getName(), player.getTeam().getName(),
+                this.amount) + bottom;
     }
 }

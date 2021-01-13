@@ -178,13 +178,17 @@ public class Game {
         simulation.runSimulation();
     }
 
-    public void printResults(){
+    public void printHeader(){
         String header = "|\n" +
                 String.format("| %s versus %s\n", team1.getName(), team2.getName()) +
                 String.format("| Winner: %s (%d - %d)\n", winner.getName(),
                         winnerBoxScore.getScore(), loserBoxScore.getScore()) +
                 "|\n";
         System.out.println(header);
+    }
+
+    public void printTotalResults(){
+        printHeader();
         System.out.println(winnerBoxScore.toString());
         System.out.println(loserBoxScore.toString());
 

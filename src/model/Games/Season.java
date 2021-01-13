@@ -264,7 +264,8 @@ public class Season {
                     sixers = team;
             }
         }
-        String endString = "| End season results\n" +
+        String endString = "\n"+
+                "| End season results\n" +
                 "|\n" +
                 "| Records:\n" +
                 String.format("| WEST: Lakers (%s-%s), Warriors (%s-%s)\n", lakers.getWins(), lakers.getLosses(),
