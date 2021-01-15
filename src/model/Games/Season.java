@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Desc: Class for playoff information
+ * Author: Christopher Banas
+ */
 public class Season {
 
     /** List of games during this season */

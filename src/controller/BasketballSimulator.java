@@ -3,18 +3,29 @@ package controller;
 import model.Autogeneration.GenerateTeam;
 import model.Games.Game;
 import model.Games.League;
-import model.Games.Season;
 import model.Team.Team;
 
 import java.util.*;
 
+/**
+ * Desc: Controls user input to properly simulate a basketball league
+ * Author: Christopher Banas
+ */
 public class BasketballSimulator {
 
+    /** Generator for teams */
     private GenerateTeam teamGenerator;
+    /** List of teams */
     private ArrayList<Team> teamList;
+    /** Team that user wishes to monitor */
     private Team userTeam;
+    /** League this simulation is running under */
     private League league;
 
+    /**
+     * Constructor for BasketballSimulator
+     * @param option What option the user selected in Application
+     */
     public BasketballSimulator(String option){
         this.teamGenerator = new GenerateTeam();
         this.teamList = new ArrayList<>();
@@ -29,10 +40,16 @@ public class BasketballSimulator {
 
     }
 
+    /**
+     * Constructs team from a given file
+     */
     public void startFromFile(){
         //TODO open file browser
     }
 
+    /**
+     * Constructs team from teamGenerator
+     */
     public void startRandom(){
         for(int i = 0; i<4; i++){ //generate 4 teams
             this.teamList.add(teamGenerator.createTeam());
@@ -42,6 +59,9 @@ public class BasketballSimulator {
         }
     }
 
+    /**
+     * Prompts the user which team they would like to monitor
+     */
     public void chooseTeam(){
         Set<String> lakersSet = new HashSet<>(Arrays.asList("lakers", "Lakers", "l", "L", "laker", "Laker", "LAKERS"));
         Set<String> warriorsSet = new HashSet<>(Arrays.asList("warriors", "Warriors", "w", "W", "warrior", "Warrior",
@@ -74,6 +94,11 @@ public class BasketballSimulator {
         }
     }
 
+    /**
+     * Finds the team in teamList that the user chose to monitor
+     * @param name Name of chosen team
+     * @return Chosen team
+     */
     public Team findTeam(String name){
         for(Team team : this.teamList){
             if(team.getName().equals(name)){
@@ -83,6 +108,9 @@ public class BasketballSimulator {
         return null;
     }
 
+    /**
+     * Print out desired games from current season
+     */
     public void printGames(){
         Scanner scanner = new Scanner(System.in);
         String input = "";
@@ -110,6 +138,10 @@ public class BasketballSimulator {
         }
     }
 
+    /**
+     * Prompt user if they would like to see the games of their chosen team
+     * @return If user wants to see games or not
+     */
     public boolean seeUserGames(){
         Scanner scanner = new Scanner(System.in);
         String input = "";
@@ -132,6 +164,10 @@ public class BasketballSimulator {
         return bool;
     }
 
+    /**
+     * Prompt user if they would like to simulate another season
+     * @return If user wants to simulate another season or not
+     */
     public boolean newSeasonPrompt(){
         Scanner scanner = new Scanner(System.in);
         String input = "";
@@ -154,6 +190,10 @@ public class BasketballSimulator {
         return bool;
     }
 
+    /**
+     * Prompt user if they would like to monitor another team
+     * @return If user wants to monitor another team or not
+     */
     public boolean newTeamPrompt(){
         Scanner scanner = new Scanner(System.in);
         String input = "";
@@ -172,6 +212,9 @@ public class BasketballSimulator {
         return yesInputSet.contains(input);
     }
 
+    /**
+     * Starts league and simulates
+     */
     public void startLeague(){
         this.league = new League(this.teamList);
         boolean runLeague = true;
@@ -185,6 +228,7 @@ public class BasketballSimulator {
                 if (newTeamPrompt()) {
                     chooseTeam();
                 }
+                league.addYear();
             } else{
                 runLeague = false;
             }

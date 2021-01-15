@@ -5,8 +5,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+/**
+ * File that user should run, will prompt and pass execution onto BasketballSimulator
+ */
 public class Application {
 
+    /**
+     * Prompts the user to input their play option
+     * @param args Command line arguments (unused)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("-- Programmed by Christopher Banas --"); //TODO Make this look better

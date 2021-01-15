@@ -173,11 +173,17 @@ public class Game {
                 '}';
     }
 
+    /**
+     * Simulates a game
+     */
     public void play(){
         GameSimulation simulation = new GameSimulation(this);
         simulation.runSimulation();
     }
 
+    /**
+     * Prints only the header of a game
+     */
     public void printHeader(){
         String header = "|\n" +
                 String.format("| %s versus %s\n", team1.getName(), team2.getName()) +
@@ -187,6 +193,9 @@ public class Game {
         System.out.println(header);
     }
 
+    /**
+     * Prints the total game, including box scores from both teams
+     */
     public void printTotalResults(){
         printHeader();
         System.out.println(winnerBoxScore.toString());
