@@ -31,11 +31,6 @@ public class Application {
                 System.out.println("Error: Enter displayed number as input");
             }
         }
-        if ("1".equals(input)) {
-            System.out.println("Load league from file selected");
-        } else if ("2".equals(input)) {
-            System.out.println("Auto generate league selected");
-        }
         BasketballSimulator simulator = new BasketballSimulator(input);
     }
 }

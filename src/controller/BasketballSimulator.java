@@ -1,15 +1,19 @@
 package controller;
 
 import model.Autogeneration.GenerateTeam;
+import model.Games.Game;
 import model.Games.League;
+import model.Games.Season;
 import model.Team.Team;
 
 import java.util.*;
 
 public class BasketballSimulator {
 
-    GenerateTeam teamGenerator;
-    ArrayList<Team> teamList;
+    private GenerateTeam teamGenerator;
+    private ArrayList<Team> teamList;
+    private Team userTeam;
+    private League league;
 
     public BasketballSimulator(String option){
         this.teamGenerator = new GenerateTeam();
@@ -20,13 +24,14 @@ public class BasketballSimulator {
         } else if ("2".equals(option)) {
             startRandom();
         }
+        chooseTeam();
+        startLeague();
 
     }
 
     public void startFromFile(){
         //TODO open file browser
     }
-
 
     public void startRandom(){
         for(int i = 0; i<4; i++){ //generate 4 teams
@@ -35,7 +40,6 @@ public class BasketballSimulator {
         for(Team team : this.teamList){
             System.out.println(team);
         }
-        chooseTeam();
     }
 
     public void chooseTeam(){
@@ -47,28 +51,27 @@ public class BasketballSimulator {
         Set<String> cetlicsSet = new HashSet<>(Arrays.asList("celtics", "Celtics", "c", "C", "celtic", "Celtic",
                 "CELTICS"));
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter team you wish to monitor");
         String input = "";
         while(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
                 !cetlicsSet.contains(input)){
+            System.out.println("Enter team you wish to monitor");
             System.out.print("> ");
             input = scanner.nextLine();
             if(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
                     !cetlicsSet.contains(input)){
                 System.out.println("Error: Enter correct team name");
+                System.out.println("");
             }
         }
-        Team chosenTeam = null;
         if (lakersSet.contains(input)){
-            chosenTeam = findTeam("Lakers");
+            this.userTeam = findTeam("Lakers");
         } else if (warriorsSet.contains(input)){
-            chosenTeam = findTeam("Warriors");
+            this.userTeam = findTeam("Warriors");
         } else if (sixersSet.contains(input)){
-            chosenTeam = findTeam("Sixers");
+            this.userTeam = findTeam("Sixers");
         } else{ //celtics
-            chosenTeam = findTeam("Celtics");
+            this.userTeam = findTeam("Celtics");
         }
-        startLeague(chosenTeam);
     }
 
     public Team findTeam(String name){
@@ -80,8 +83,111 @@ public class BasketballSimulator {
         return null;
     }
 
-    public void startLeague(Team userTeam){
-        League league = new League(this.teamList, userTeam);
-        league.simulateNewSeason();
+    public void printGames(){
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        HashMap<Integer, Game> gameMap = league.buildMap(this.userTeam);
+        Set<String> validInputSet = new HashSet<>(Arrays.asList("done", "Done", "d", "D"));
+        while(!validInputSet.contains(input)){
+            System.out.println("Enter which game you would like to see the box score of (enter done to exit)");
+            System.out.print("> ");
+            input = scanner.nextLine();
+            if(!validInputSet.contains(input)){
+                try{
+                    if(!gameMap.containsKey(Integer.parseInt(input))){
+                        System.out.println("Error: Enter a valid game number");
+                        System.out.println("");
+                    } else{
+                        System.out.println("");
+                        Game game = gameMap.get(Integer.parseInt(input));
+                        game.printTotalResults();
+                    }
+                }catch (NumberFormatException e){
+                    System.out.println("Error: Enter only a number");
+                    System.out.println("");
+                }
+            }
+        }
+    }
+
+    public boolean seeUserGames(){
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
+        Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
+        while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+            System.out.printf("Would you like to see box scores from your team's (%s) schedule?%n",
+                    this.userTeam.getName());
+            System.out.print("> ");
+            input = scanner.nextLine();
+            if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+                System.out.println("Error: Enter yes or no");
+            }
+        }
+        System.out.println("");
+        boolean bool = false;
+        if(yesInputSet.contains(input)){
+            bool = true;
+        }
+        return bool;
+    }
+
+    public boolean newSeasonPrompt(){
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
+        Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
+        while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+            System.out.println("Would you like to simulate another season?");
+            System.out.print("> ");
+            input = scanner.nextLine();
+            if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+                System.out.println("Error: Enter yes or no");
+                System.out.println("");
+            }
+        }
+        System.out.println("");
+        boolean bool = false;
+        if(yesInputSet.contains(input)){
+            bool = true;
+        }
+        return bool;
+    }
+
+    public boolean newTeamPrompt(){
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
+        Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
+        while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+            System.out.println("Would you like to monitor a different team this season?");
+            System.out.print("> ");
+            input = scanner.nextLine();
+            if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
+                System.out.println("Error: Enter yes or no");
+                System.out.println("");
+            }
+        }
+        System.out.println("");
+        return yesInputSet.contains(input);
+    }
+
+    public void startLeague(){
+        this.league = new League(this.teamList);
+        boolean runLeague = true;
+        Scanner scanner = new Scanner(System.in);
+        while (runLeague){
+            league.simulateNewSeason();
+            if(seeUserGames()){
+                printGames();
+            }
+            if(newSeasonPrompt()){
+                if (newTeamPrompt()) {
+                    chooseTeam();
+                }
+            } else{
+                runLeague = false;
+            }
+        }
     }
 }

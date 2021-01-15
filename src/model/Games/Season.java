@@ -265,7 +265,7 @@ public class Season {
             }
         }
         String endString = "\n"+
-                "| End season results\n" +
+                String.format("| %s Season results\n", this.year) +
                 "|\n" +
                 "| Records:\n" +
                 String.format("| WEST: Lakers (%s-%s), Warriors (%s-%s)\n", lakers.getWins(), lakers.getLosses(),
