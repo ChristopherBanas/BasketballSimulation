@@ -19,24 +19,24 @@ class GameSimulationTest {
     @BeforeEach
     void setUp() {
         Coach docRivers = new Coach("Doc Rivers", 50);
-        Player benSimmons = new Player("Ben Simmons", 25, Type.DEFENSIVE_PLAYMAKER,
-                Role.STAR, Position.POINT_GUARD);
-        Player joelEmbiid = new Player("Joel Embiid", 26, Type.PAINT_BEAST,
-                Role.SUPERSTAR, Position.CENTER);
-        Player sethCurry = new Player("Seth Curry", 30, Type.PURE_SHOOTER,
-                Role.STARTER, Position.SHOOTING_GUARD);
-        Player dannyGreen = new Player("Danny Green", 33, Type.THREE_AND_D,
-                Role.STARTER, Position.SMALL_FORWARD);
-        Player tobiasHarris = new Player("Tobias Harris", 30, Type.THREE_LEVEL_SCORER,
-                Role.STARTER, Position.POWER_FORWARD);
-        Player dwightHoward = new Player("Dwight Howard", 35, Type.ENERGETIC_REBOUNDER,
-                Role.BENCH, Position.CENTER);
-        Player matisseThybulle = new Player("Matisse Thybulle", 20, Type.PERIMETER_DEFENDER,
-                Role.BENCH, Position.SMALL_FORWARD);
-        Player shakeMilton = new Player("Shake Milton", 20, Type.OFFENSIVE_PLAYMAKER,
-                Role.SIXTH_MAN, Position.SHOOTING_GUARD);
-        Player tyreseMaxey = new Player("Tyrese Maxey", 20, Type.PLAYMAKER,
-                Role.BENCH, Position.POINT_GUARD);
+        Player benSimmons = new Player("Ben Simmons", 25, Type.Defensive_playmaker,
+                Role.Star, Position.Point_guard);
+        Player joelEmbiid = new Player("Joel Embiid", 26, Type.Paint_beast,
+                Role.Superstar, Position.Center);
+        Player sethCurry = new Player("Seth Curry", 30, Type.Pure_shooter,
+                Role.Starter, Position.Shooting_guard);
+        Player dannyGreen = new Player("Danny Green", 33, Type.Three_and_D,
+                Role.Starter, Position.Small_forward);
+        Player tobiasHarris = new Player("Tobias Harris", 30, Type.Three_level_scorer,
+                Role.Starter, Position.Power_forward);
+        Player dwightHoward = new Player("Dwight Howard", 35, Type.Energetic_rebounder,
+                Role.Bench, Position.Center);
+        Player matisseThybulle = new Player("Matisse Thybulle", 20, Type.Perimeter_defender,
+                Role.Bench, Position.Small_forward);
+        Player shakeMilton = new Player("Shake Milton", 20, Type.Offensive_playmaker,
+                Role.Sixth_man, Position.Shooting_guard);
+        Player tyreseMaxey = new Player("Tyrese Maxey", 20, Type.Playmaker,
+                Role.Bench, Position.Point_guard);
         Team sixers = new Team("Sixers", docRivers);
         ArrayList<Player> playerList = new ArrayList<>();
         playerList.add(benSimmons);
@@ -51,24 +51,24 @@ class GameSimulationTest {
         sixers.addMultiplePlayers(playerList);
 
         Coach frankVogel = new Coach("Frank Vogel", 60);
-        Player lebronJames = new Player("Lebron James", 36, Type.BALANCED_SUPERSTAR,
-                Role.SUPERSTAR, Position.SMALL_FORWARD);
-        Player anthonyDavis = new Player("Anthony Davis", 28, Type.TWO_WAY_SUPERSTAR,
-                Role.SUPERSTAR, Position.POWER_FORWARD);
-        Player dennisShroder = new Player("Dennis Shroder", 27, Type.OFFENSIVE_PLAYMAKER,
-                Role.STARTER, Position.POINT_GUARD);
-        Player kentPope = new Player("Pope", 30, Type.PURE_SHOOTER,
-                Role.STARTER, Position.SHOOTING_GUARD);
-        Player marcGasol = new Player("Marc Gasol", 38, Type.INSIDE_DEFENDER,
-                Role.STARTER, Position.CENTER);
-        Player montrezHarrell = new Player("Montrez Harrell", 30, Type.ENERGETIC_REBOUNDER,
-                Role.SIXTH_MAN, Position.CENTER);
-        Player kyleKuzma = new Player("Kyle Kuzma", 25, Type.PURE_SHOOTER,
-                Role.BENCH, Position.SMALL_FORWARD);
-        Player caruso = new Player("Alex Caruso", 30, Type.DEFENSIVE_PLAYMAKER,
-                Role.BENCH, Position.POINT_GUARD);
-        Player wesMatthews = new Player("Wesley Matthews", 35, Type.PURE_SHOOTER,
-                Role.BENCH, Position.SHOOTING_GUARD );
+        Player lebronJames = new Player("Lebron James", 36, Type.Balanced_superstar,
+                Role.Superstar, Position.Small_forward);
+        Player anthonyDavis = new Player("Anthony Davis", 28, Type.Two_war_superstar,
+                Role.Superstar, Position.Power_forward);
+        Player dennisShroder = new Player("Dennis Shroder", 27, Type.Offensive_playmaker,
+                Role.Starter, Position.Point_guard);
+        Player kentPope = new Player("Pope", 30, Type.Pure_shooter,
+                Role.Starter, Position.Shooting_guard);
+        Player marcGasol = new Player("Marc Gasol", 38, Type.Inside_defender,
+                Role.Starter, Position.Center);
+        Player montrezHarrell = new Player("Montrez Harrell", 30, Type.Energetic_rebounder,
+                Role.Sixth_man, Position.Center);
+        Player kyleKuzma = new Player("Kyle Kuzma", 25, Type.Pure_shooter,
+                Role.Bench, Position.Small_forward);
+        Player caruso = new Player("Alex Caruso", 30, Type.Defensive_playmaker,
+                Role.Bench, Position.Point_guard);
+        Player wesMatthews = new Player("Wesley Matthews", 35, Type.Pure_shooter,
+                Role.Bench, Position.Shooting_guard );
         Team lakers = new Team("Lakers", frankVogel);
         ArrayList<Player> playerList2 = new ArrayList<>();
         playerList2.add(lebronJames);

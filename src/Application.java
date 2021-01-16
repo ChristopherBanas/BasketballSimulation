@@ -36,6 +36,7 @@ public class Application {
             input = scanner.nextLine();
             if(!validInputSet.contains(input)){
                 System.out.println("Error: Enter displayed number as input");
+                System.out.println("");
             }
         }
         BasketballSimulator simulator = new BasketballSimulator(input);

@@ -1,5 +1,6 @@
 package controller;
 
+import controller.ValidInputs.TeamInputs;
 import model.Autogeneration.GenerateTeam;
 import model.Games.Game;
 import model.Games.League;
@@ -44,7 +45,8 @@ public class BasketballSimulator {
      * Constructs team from a given file
      */
     public void startFromFile(){
-        //TODO open file browser
+        FileReader fileReader = new FileReader();
+        fileReader.run();
     }
 
     /**
@@ -63,31 +65,24 @@ public class BasketballSimulator {
      * Prompts the user which team they would like to monitor
      */
     public void chooseTeam(){
-        Set<String> lakersSet = new HashSet<>(Arrays.asList("lakers", "Lakers", "l", "L", "laker", "Laker", "LAKERS"));
-        Set<String> warriorsSet = new HashSet<>(Arrays.asList("warriors", "Warriors", "w", "W", "warrior", "Warrior",
-                "WARRIORS"));
-        Set<String> sixersSet = new HashSet<>(Arrays.asList("sixers", "Sixers", "s", "S", "six", "Six", "76ers",
-                "SIXERS"));
-        Set<String> cetlicsSet = new HashSet<>(Arrays.asList("celtics", "Celtics", "c", "C", "celtic", "Celtic",
-                "CELTICS"));
         Scanner scanner = new Scanner(System.in);
         String input = "";
-        while(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
-                !cetlicsSet.contains(input)){
+        while(!TeamInputs.lakersSet.contains(input) && !TeamInputs.warriorsSet.contains(input) &&
+                !TeamInputs.sixersSet.contains(input) && !TeamInputs.cetlicsSet.contains(input)){
             System.out.println("Enter team you wish to monitor");
             System.out.print("> ");
             input = scanner.nextLine();
-            if(!lakersSet.contains(input) && !warriorsSet.contains(input) && !sixersSet.contains(input) &&
-                    !cetlicsSet.contains(input)){
+            if(!TeamInputs.lakersSet.contains(input) && !TeamInputs.warriorsSet.contains(input) &&
+                    !TeamInputs.sixersSet.contains(input) && !TeamInputs.cetlicsSet.contains(input)){
                 System.out.println("Error: Enter correct team name");
                 System.out.println("");
             }
         }
-        if (lakersSet.contains(input)){
+        if (TeamInputs.lakersSet.contains(input)){
             this.userTeam = findTeam("Lakers");
-        } else if (warriorsSet.contains(input)){
+        } else if (TeamInputs.warriorsSet.contains(input)){
             this.userTeam = findTeam("Warriors");
-        } else if (sixersSet.contains(input)){
+        } else if (TeamInputs.sixersSet.contains(input)){
             this.userTeam = findTeam("Sixers");
         } else{ //celtics
             this.userTeam = findTeam("Celtics");
@@ -136,6 +131,7 @@ public class BasketballSimulator {
                 }
             }
         }
+        System.out.println("");
     }
 
     /**
@@ -154,6 +150,7 @@ public class BasketballSimulator {
             input = scanner.nextLine();
             if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
                 System.out.println("Error: Enter yes or no");
+                System.out.println("");
             }
         }
         System.out.println("");
@@ -233,5 +230,6 @@ public class BasketballSimulator {
                 runLeague = false;
             }
         }
+        System.out.println("Goodbye!");
     }
 }

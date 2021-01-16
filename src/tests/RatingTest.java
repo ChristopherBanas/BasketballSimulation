@@ -13,7 +13,7 @@ class RatingTest {
 
     @BeforeEach
     void setUp() {
-        rating = new Rating(Type.GOD);
+        rating = new Rating(Type.God);
     }
 
     @Test

@@ -25,7 +25,7 @@ class GenerateTeamTest {
         int amount = 0;
         for(int i =0; i < team.getRoster().size(); i++){
             Type type = team.getRoster().get(i).getType();
-            if(type.equals(Type.GOD)){
+            if(type.equals(Type.God)){
                 amount += 1;
             }
         }
@@ -38,7 +38,7 @@ class GenerateTeamTest {
         int amount = 0;
         for(int i =0; i < team.getRoster().size(); i++){
             Role role = team.getRoster().get(i).getRole();
-            if(role.equals(Role.SUPERSTAR) || role.equals(Role.STAR)){
+            if(role.equals(Role.Superstar) || role.equals(Role.Star)){
                 amount += 1;
             }
         }
@@ -51,7 +51,7 @@ class GenerateTeamTest {
         int amount = 0;
         for(int i =0; i < team.getRoster().size(); i++){
             Role role = team.getRoster().get(i).getRole();
-            if(role.equals(Role.SUPERSTAR) || role.equals(Role.STAR)){
+            if(role.equals(Role.Superstar) || role.equals(Role.Star)){
                 amount += 1;
             }
         }
@@ -64,7 +64,7 @@ class GenerateTeamTest {
         int amount = 0;
         for(int i =0; i < team.getRoster().size(); i++){
             Role role = team.getRoster().get(i).getRole();
-            if(role.equals(Role.STAR)){
+            if(role.equals(Role.Star)){
                 amount += 1;
             }
         }
@@ -77,7 +77,7 @@ class GenerateTeamTest {
         int amount = 0;
         for(int i =0; i < team.getRoster().size(); i++){
             Role role = team.getRoster().get(i).getRole();
-            if(role.equals(Role.STARTER)){
+            if(role.equals(Role.Starter)){
                 amount += 1;
             }
         }

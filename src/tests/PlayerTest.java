@@ -15,13 +15,13 @@ class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        player = new Player("Lebron James", 35, Type.ALL_AROUND,
-                Role.STAR, Position.SMALL_FORWARD);
+        player = new Player("Lebron James", 35, Type.All_around,
+                Role.Starter, Position.Small_forward);
     }
 
     @Test
     void getType() {
-        assertEquals(Type.ALL_AROUND, player.getType());
+        assertEquals(Type.All_around, player.getType());
     }
 
     @Test

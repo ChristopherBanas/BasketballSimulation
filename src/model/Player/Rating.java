@@ -27,64 +27,64 @@ public class Rating {
      */
     public Rating(Type type){
         switch (type) {
-            case THREE_AND_D:
+            case Three_and_D:
                 generateFields(4, 9, 9, 9, 5, 7);
                 break;
-            case ALL_AROUND:
+            case All_around:
                 generateFields(7, 6, 6, 7, 7, 6);
                 break;
-            case OFFENSIVE_PLAYMAKER:
+            case Offensive_playmaker:
                 generateFields(6, 6, 9, 9, 9, 4);
                 break;
-            case DEFENSIVE_PLAYMAKER:
+            case Defensive_playmaker:
                 generateFields(8, 8, 9, 7, 5, 4);
                 break;
-            case PLAYMAKER:
+            case Playmaker:
                 generateFields(7, 7, 9, 9, 8, 4);
                 break;
-            case ENERGETIC_REBOUNDER:
+            case Energetic_rebounder:
                 generateFields(9, 5, 4, 5, 9, 9);
                 break;
-            case THREE_LEVEL_SCORER:
+            case Three_level_scorer:
                 generateFields(5, 5, 7, 9, 9, 7);
                 break;
-            case POST_PLAYER:
+            case Post_player:
                 generateFields(9, 4, 5, 7, 9, 8);
                 break;
-            case IN_OUT_DEFENDER:
+            case In_out_defender:
                 generateFields(8, 8, 7, 4, 4, 9);
                 break;
-            case PERIMETER_DEFENDER:
+            case Perimeter_defender:
                 generateFields(6, 9, 9, 8, 4, 8);
                 break;
-            case INSIDE_DEFENDER:
+            case Inside_defender:
                 generateFields(9, 6, 8, 4, 8, 9);
                 break;
-            case PURE_SHOOTER:
+            case Pure_shooter:
                 generateFields(4, 7, 9, 9, 9, 8);
                 break;
-            case STRETCH_BIG:
+            case Stretch_big:
                 generateFields(4, 6, 6, 7, 9, 9);
                 break;
-            case PAINT_BEAST:
+            case Paint_beast:
                 generateFields(9, 0, 0, 0, 9, 8);
                 break;
-            case OFFENSIVE_SUPERSTAR:
+            case Offensive_superstar:
                 generateFields(0, 0, 8, 9, 9, 5);
                 break;
-            case POINT_GOD:
+            case Point_god:
                 generateFields(2, 5, 8, 9, 2, 0);
                 break;
-            case BALANCED_SUPERSTAR:
+            case Balanced_superstar:
                 generateFields(3, 3, 3, 5, 5, 3);
                 break;
-            case LOCKDOWN_DEFENDER:
+            case Lockdown_defender:
                 generateFields(6, 6, 6, 0, 0, 7);
                 break;
-            case TWO_WAY_SUPERSTAR:
+            case Two_war_superstar:
                 generateFields(3, 3, 6, 2, 2, 8);
                 break;
-            case GOD:
+            case God:
                 generateFields(0, 0, 0, 0, 0, 0);
                 break;
         }

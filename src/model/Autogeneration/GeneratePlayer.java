@@ -52,32 +52,32 @@ public class GeneratePlayer {
      */
     public Type pointGuardType(Role role){
         int random;
-        if(role.equals(Role.SUPERSTAR)){
+        if(role.equals(Role.Superstar)){
             random = (int) (Math.random() * (9 - 5 + 1) + 5); //superstar types from range 5-9
         } else{
             random = (int) (Math.random() * (4 + 1)); //star to bench types from range 0-4
         }
         switch (random) {
             case 0:
-                return Type.PLAYMAKER;
+                return Type.Playmaker;
             case 1:
-                return Type.ALL_AROUND;
+                return Type.All_around;
             case 2:
-                return Type.OFFENSIVE_PLAYMAKER;
+                return Type.Offensive_playmaker;
             case 3:
-                return Type.DEFENSIVE_PLAYMAKER;
+                return Type.Defensive_playmaker;
             case 4:
-                return Type.PERIMETER_DEFENDER;
+                return Type.Perimeter_defender;
             case 5:
-                return Type.OFFENSIVE_SUPERSTAR; //superstar only types from range 5-9
+                return Type.Offensive_superstar; //superstar only types from range 5-9
             case 6:
-                return Type.POINT_GOD;
+                return Type.Point_god;
             case 7:
-                return Type.BALANCED_SUPERSTAR;
+                return Type.Balanced_superstar;
             case 8:
-                return Type.LOCKDOWN_DEFENDER;
+                return Type.Lockdown_defender;
             case 9:
-                return Type.TWO_WAY_SUPERSTAR;
+                return Type.Two_war_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -90,32 +90,32 @@ public class GeneratePlayer {
      */
     public Type shootingGuardType(Role role){
         int random;
-        if(role.equals(Role.SUPERSTAR)){
+        if(role.equals(Role.Superstar)){
             random = (int) (Math.random() * (9 - 6 + 1) + 6); //superstar types from range 6-9
         } else{
             random = (int) (Math.random() * (5 + 1)); //star to bench types from range 0-5
         }
         switch (random) {
             case 0:
-                return Type.THREE_AND_D;
+                return Type.Three_and_D;
             case 1:
-                return Type.ALL_AROUND;
+                return Type.All_around;
             case 2:
-                return Type.THREE_LEVEL_SCORER;
+                return Type.Three_level_scorer;
             case 3:
-                return Type.PERIMETER_DEFENDER;
+                return Type.Perimeter_defender;
             case 4:
-                return Type.IN_OUT_DEFENDER;
+                return Type.In_out_defender;
             case 5:
-                return Type.PURE_SHOOTER;
+                return Type.Pure_shooter;
             case 6:
-                return Type.OFFENSIVE_SUPERSTAR; //superstar only types from range 6-9
+                return Type.Offensive_superstar; //superstar only types from range 6-9
             case 7:
-                return Type.BALANCED_SUPERSTAR;
+                return Type.Balanced_superstar;
             case 8:
-                return Type.LOCKDOWN_DEFENDER;
+                return Type.Lockdown_defender;
             case 9:
-                return Type.TWO_WAY_SUPERSTAR;
+                return Type.Two_war_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -128,34 +128,34 @@ public class GeneratePlayer {
      */
     public Type smallForwardType(Role role){
         int random;
-        if(role.equals(Role.SUPERSTAR)){
+        if(role.equals(Role.Superstar)){
             random = (int) (Math.random() * (10 - 7 + 1) + 7); //superstar types from range 7-10
         } else{
             random = (int) (Math.random() * (6 + 1)); //star to bench types from range 0-6
         }
         switch (random) {
             case 0:
-                return Type.THREE_AND_D;
+                return Type.Three_and_D;
             case 1:
-                return Type.ALL_AROUND;
+                return Type.All_around;
             case 2:
-                return Type.THREE_LEVEL_SCORER;
+                return Type.Three_level_scorer;
             case 3:
-                return Type.PERIMETER_DEFENDER;
+                return Type.Perimeter_defender;
             case 4:
-                return Type.IN_OUT_DEFENDER;
+                return Type.In_out_defender;
             case 5:
-                return Type.INSIDE_DEFENDER;
+                return Type.Inside_defender;
             case 6:
-                return Type.PURE_SHOOTER;
+                return Type.Pure_shooter;
             case 7:
-                return Type.BALANCED_SUPERSTAR; //superstar only types from range 7-10
+                return Type.Balanced_superstar; //superstar only types from range 7-10
             case 8:
-                return Type.LOCKDOWN_DEFENDER;
+                return Type.Lockdown_defender;
             case 9:
-                return Type.TWO_WAY_SUPERSTAR;
+                return Type.Two_war_superstar;
             case 10:
-                return Type.OFFENSIVE_SUPERSTAR;
+                return Type.Offensive_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -168,34 +168,34 @@ public class GeneratePlayer {
      */
     public Type powerForwardType(Role role){
         int random;
-        if(role.equals(Role.SUPERSTAR)){
+        if(role.equals(Role.Superstar)){
             random = (int) (Math.random() * (10 - 8 + 1) + 8); //superstar types from range 8-10
         } else{
             random = (int) (Math.random() * (7 + 1)); //star to bench types from range 0-7
         }
         switch (random) {
             case 0:
-                return Type.ENERGETIC_REBOUNDER;
+                return Type.Energetic_rebounder;
             case 1:
-                return Type.POST_PLAYER;
+                return Type.Post_player;
             case 2:
-                return Type.IN_OUT_DEFENDER;
+                return Type.In_out_defender;
             case 3:
-                return Type.PERIMETER_DEFENDER;
+                return Type.Perimeter_defender;
             case 4:
-                return Type.INSIDE_DEFENDER;
+                return Type.Inside_defender;
             case 5:
-                return Type.PURE_SHOOTER;
+                return Type.Pure_shooter;
             case 6:
-                return Type.STRETCH_BIG;
+                return Type.Stretch_big;
             case 7:
-                return Type.THREE_LEVEL_SCORER;
+                return Type.Three_level_scorer;
             case 8:
-                return Type.PAINT_BEAST; //superstar only types from range 8-10
+                return Type.Paint_beast; //superstar only types from range 8-10
             case 9:
-                return Type.LOCKDOWN_DEFENDER;
+                return Type.Lockdown_defender;
             case 10:
-                return Type.TWO_WAY_SUPERSTAR;
+                return Type.Two_war_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -208,22 +208,22 @@ public class GeneratePlayer {
      */
     public Type centerType(Role role){
         int random;
-        if(role.equals(Role.SUPERSTAR)){
+        if(role.equals(Role.Superstar)){
             random = 4;
         } else{
             random = (int) (Math.random() * (3 + 1)); //star to bench types from range 0-3
         }
         switch (random) {
             case 0:
-                return Type.ENERGETIC_REBOUNDER;
+                return Type.Energetic_rebounder;
             case 1:
-                return Type.POST_PLAYER;
+                return Type.Post_player;
             case 2:
-                return Type.INSIDE_DEFENDER;
+                return Type.Inside_defender;
             case 3:
-                return Type.STRETCH_BIG;
+                return Type.Stretch_big;
             case 4:
-                return Type.PAINT_BEAST; //superstar only
+                return Type.Paint_beast; //superstar only
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -237,15 +237,15 @@ public class GeneratePlayer {
      */
     public Type generateType(Position position, Role role){
         switch (position) {
-            case POINT_GUARD:
+            case Point_guard:
                 return pointGuardType(role);
-            case SHOOTING_GUARD:
+            case Shooting_guard:
                 return shootingGuardType(role);
-            case SMALL_FORWARD:
+            case Small_forward:
                 return smallForwardType(role);
-            case POWER_FORWARD:
+            case Power_forward:
                 return powerForwardType(role);
-            case CENTER:
+            case Center:
                 return centerType(role);
             default:
                 throw new IllegalArgumentException();
@@ -261,15 +261,15 @@ public class GeneratePlayer {
         int random = new Random().nextInt(numberOfPositions);
         switch (random) {
             case 0:
-                return Position.POINT_GUARD;
+                return Position.Point_guard;
             case 1:
-                return Position.SHOOTING_GUARD;
+                return Position.Shooting_guard;
             case 2:
-                return Position.SMALL_FORWARD;
+                return Position.Small_forward;
             case 3:
-                return Position.POWER_FORWARD;
+                return Position.Power_forward;
             case 4:
-                return Position.CENTER;
+                return Position.Center;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -282,15 +282,15 @@ public class GeneratePlayer {
     public Role generateRole(){
         int random = new Random().nextInt(240);
         if(random <= 20){ //0-20, rare
-            return Role.SUPERSTAR;
+            return Role.Superstar;
         } else if(random <= 60){ //21-60, uncommon
-            return Role.STAR;
+            return Role.Star;
         } else if(random <= 120){ //61-120, average
-            return Role.STARTER;
+            return Role.Star;
         } else if(random <= 180){ //121-180, common
-            return Role.SIXTH_MAN;
+            return Role.Sixth_man;
         } else{ //181-240
-            return Role.BENCH;
+            return Role.Bench;
         }
     }
 

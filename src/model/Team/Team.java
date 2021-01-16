@@ -40,6 +40,18 @@ public class Team {
     }
 
     /**
+     * Constructor for team when number of championships is known
+     * @param name Name of team
+     */
+    public Team(String name, int championships){
+        this.name = name;
+        this.wins = 0;
+        this.losses = 0;
+        this.roster = new ArrayList<>();
+        this.championships = championships;
+    }
+
+    /**
      * Constructor for team when a coach has been assigned
      * @param name Name of team
      * @param coach Coach for team
@@ -154,22 +166,22 @@ public class Team {
         int numOfSuper = 0;
         int numOfStar = 0;
         for(Player player : this.roster){
-            if (player.getRole() == Role.SUPERSTAR) {
+            if (player.getRole() == Role.Superstar) {
                 numOfSuper += 1;
-            } else if (player.getRole() == Role.STAR) {
+            } else if (player.getRole() == Role.Star) {
                 numOfStar += 1;
             }
         }
         if(numOfSuper > 2){ //3+ superstars
-            this.type = TeamType.GOD_TEAM;
+            this.type = TeamType.God_team;
         } else if(numOfSuper >= 2 && numOfStar >= 1){ //2+ superstars and 1+ star
-            this.type = TeamType.SUPER_TEAM;
+            this.type = TeamType.Super_team;
         } else if(numOfSuper <= 2 && numOfSuper > 0 && numOfStar <= 1){ //1-2 superstars and 0-1 stars
-            this.type = TeamType.CONTENDING_TEAM;
+            this.type = TeamType.Contending_team;
         } else if(numOfStar == 1 || numOfStar == 2){ //1 or 2 stars
-            this.type = TeamType.PLAYOFF_TEAM;
+            this.type = TeamType.Playoff_team;
         } else{ //pure starters
-            this.type = TeamType.AVERAGE_TEAM;
+            this.type = TeamType.Average_team;
         }
     }
 
@@ -285,12 +297,12 @@ public class Team {
         teamString.append(String.format("| Championships: %s\n", championships));
         teamString.append("|\n");
         teamString.append("|\n");
-        teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s", "Name",
+        teamString.append(String.format("| %s "+"%"+(longestName+1)+"s"+" %22s %17s %5s %5s %6s %6s %12s %10s", "Name",
                 "Role", "Type", "Position", "3", "2", "Reb", "Pass", "In_Defense", "Out_Defense\n"));
         for(Player player : this.roster){
             int spacing = longestName - player.getName().length();
             teamString.append("|\n");
-            teamString.append(String.format("| %s "+"%"+(spacing+5)+"s"+" %22s %20s %5s %5s %6s %6s %12s %10s\n",
+            teamString.append(String.format("| %s "+"%"+(spacing+5)+"s"+" %22s %17s %5s %5s %6s %6s %12s %10s\n",
                     player.getName(), player.getRole(), player.getType(), player.getPosition(),
                     player.getRating().getOutsideShotRating(), player.getRating().getInsideShotRating(),
                     player.getRating().getReboundRating(), player.getRating().getPassingRating(),

@@ -43,19 +43,19 @@ public class GameSimulation {
      */
     public void setRole(Role role){
         switch (role) {
-            case SUPERSTAR:
+            case Superstar:
                 ROLE_FACTOR = 1.15;
                 break;
-            case STAR:
+            case Star:
                 ROLE_FACTOR = 1;
                 break;
-            case STARTER:
+            case Starter:
                 ROLE_FACTOR = .85;
                 break;
-            case SIXTH_MAN:
+            case Sixth_man:
                 ROLE_FACTOR = .70;
                 break;
-            case BENCH:
+            case Bench:
                 ROLE_FACTOR = .65;
                 break;
         }
