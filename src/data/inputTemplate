@@ -1,52 +1,69 @@
+TEAM_NAME = Name of team. Options are (case sensitive): Lakers, Warriors, Sixers, Celtics
+NUM_OF_CHAMPIONSHIPS = Number of championships team has won
+COACH_NAME = Name of coach
+COACH_AGE = Age of coach
+PLAYER_NAME = Name of player
+PLAYER_AGE = Age of player
+PLAYER_TYPE = Type of player. Options are (case sensitive): Three_and_D, All_around, Offensive_playmaker,
+Defensive_playmaker, Playmaker, Energetic_rebounder, Three_level_scorer, Post_player, In_out_defender, Pure_shooter,
+Stretch_big, Inside_defender, Perimeter_defender, Paint_beast, Offensive_superstar, Point_god, Balanced_superstar,
+Lockdown_defender, Two_war_superstar, God
+PLAYER_ROLE = Role of player. Options are (case sensitive): Superstar, Star, Starter, Sixth_man, Bench
+PLAYER_POSITION = Position of player. Options are (case sensitive): Point_guard, Shooting_guard, Small_forward,
+Power_forward, Center
+
+**IMPORTANT**
+No spaces after commas
+
 START_TEAM
-Team,Lakers,17
-Coach,Frank Vogel,55
-Player,Lebron James,36,Balanced_superstar,Superstar,Small_forward
-Player,Anthony Davis,29,Paint_beast,Superstar,Power_forward
-Player,Dennis Shroder,26,Offensive_playmaker,Starter,Point_guard
-Player,KCP,30,Pure_shooter,Starter,Shooting_guard
-Player,Marc Gasol,35,Inside_defender,Starter,Center
-Player,Montrez Harrell,27,Energetic_rebounder,Sixth_man,Center
-Player,Kyle Kuzma,22,Pure_shooter,Bench,Small_forward
-Player,Alex Caruso,25,Defensive_playmaker,Bench,Point_guard
-Player,Wesley Matthews,34,Pure_shooter,Bench,Shooting_guard
+Team,TEAM_NAME,NUM_OF_CHAMPIONSHIPS
+Coach,COACH_NAME,COACH_AGE
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
 END_TEAM
 START_TEAM
-Team,Sixers,3
-Coach,Doc Rivers,50
-Player,Ben Simmons,25,Defensive_playmaker,Star,Point_guard
-Player,Joel Embiid,27,Paint_beast,Superstar,Center
-Player,Seth Curry,30,Pure_shooter,Starter,Shooting_guard
-Player,Danny Green,33,Three_and_D,Starter,Small_forward
-Player,Tobias Harris,29,Three_level_scorer,Starter,Small_forward
-Player,Shake Milton,20,Playmaker,Sixth_man,Point_guard
-Player,Dwight Howard,36,Energetic_rebounder,Bench,Center
-Player,Matisse Thybulle,20,Perimeter_defender,Bench,Small_forward
-Player,Tyrese Maxey,20,Playmaker,Bench,Point_guard
+Team,TEAM_NAME,NUM_OF_CHAMPIONSHIPS
+Coach,COACH_NAME,COACH_AGE
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
 END_TEAM
 START_TEAM
-Team,Warriors,5
-Coach,Steve Kerr,60
-Player,Stephen Curry,30,Offensive_superstar,Superstar,Point_guard
-Player,Klay Thompson,30,Three_and_D,Star,Shooting_guard
-Player,Andrew Wiggins,25,Three_level_scorer,Starter,Small_forward
-Player,Draymond Green,31,Defensive_playmaker,Star,Power_forward
-Player,James Wiseman,20,Energetic_rebounder,Starter,Center
-Player,Kelly Oubre,24,Three_level_scorer,Sixth_man,Small_forward
-Player,Brad Wannamaker,30,Playmaker,Bench,Point_guard
-Player,Eric Pascall,22,Stretch_big,Bench,Power_forward
-Player,Kevon Looney,24,Inside_defender,Bench,Center
+Team,TEAM_NAME,NUM_OF_CHAMPIONSHIPS
+Coach,COACH_NAME,COACH_AGE
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
 END_TEAM
 START_TEAM
-Team,Celtics,17
-Coach,Brad Stevens,46
-Player,Kevin Durant,33,Offensive_superstar,Superstar,Small_forward
-Player,James Harden,31,Offensive_superstar,Superstar,Shooting_guard
-Player,Kyrie Irving,30,Offensive_superstar,Star,Point_guard
-Player,Joe Harris,25,Pure_shooter,Starter,Power_forward
-Player,Deandre Jordan,33,Energetic_rebounder,Starter,Center
-Player,Spencer Dinwiddie,29,Offensive_playmaker,Sixth_man,Point_guard
-Player,Jeff Green,35,Perimeter_defender,Bench,Power_forward
-Player,Bruce Brown,33,Playmaker,Bench,Shooting_guard
-Player,TLC,25,Pure_shooter,Bench,Small_forward
+Team,TEAM_NAME,NUM_OF_CHAMPIONSHIPS
+Coach,COACH_NAME,COACH_AGE
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
+Player,PLAYER_NAME,PLAYER_AGE,PLAYER_TYPE,PLAYER_ROLE,PLAYER_POSITION
 END_TEAM
