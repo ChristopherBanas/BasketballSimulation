@@ -1,7 +1,6 @@
 package tests;
 
 import model.Autogeneration.GenerateTeam;
-import model.Autogeneration.data.TeamList;
 import model.Player.Role;
 import model.Player.Type;
 import model.Team.Team;

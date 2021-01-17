@@ -1,6 +1,6 @@
 package model.Autogeneration;
 
-import model.Autogeneration.data.NameLists;
+import model.Autogeneration.NameOptions.NameLists;
 import model.Player.Player;
 import model.Player.Position;
 import model.Player.Role;

@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Desc: Class for holding the sets of all valid user inputs for creating a player
+ * Author: Christopher Banas
+ */
 public class PlayerInputs {
 
     public static Set<String> positionSet = new HashSet<>(Arrays.asList("Point_guard", "Shooting_guard",

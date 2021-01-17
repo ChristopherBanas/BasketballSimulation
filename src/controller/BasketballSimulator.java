@@ -15,7 +15,7 @@ import java.util.*;
 public class BasketballSimulator {
 
     /** Generator for teams */
-    private GenerateTeam teamGenerator;
+    private final GenerateTeam teamGenerator;
     /** List of teams */
     private ArrayList<Team> teamList;
     /** Team that user wishes to monitor */

@@ -16,7 +16,7 @@ public class Application {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-- Programmed by Christopher Banas --"); //TODO Make this look better
+        System.out.println("-- Programmed by Christopher Banas --");
         System.out.println("------- BASKETBALL SIMULATOR --------");
         System.out.println(" ");
         System.out.println("League restrictions as of version 1.0:");
@@ -39,6 +39,6 @@ public class Application {
                 System.out.println("");
             }
         }
-        BasketballSimulator simulator = new BasketballSimulator(input);
+        new BasketballSimulator(input);
     }
 }

@@ -19,6 +19,14 @@ public class PlayoffRound {
     /** What round this was */
     private final RoundType roundType;
 
+    /**
+     * Constructor for PlayoffRound
+     * @param winner Winner of round
+     * @param winnerWins Amount of times winner won (should be 4)
+     * @param loser Loser of round
+     * @param loserWins Amount of times loser won
+     * @param roundType What type this round was
+     */
     public PlayoffRound(Team winner, int winnerWins, Team loser, int loserWins, RoundType roundType){
         this.winner = winner;
         this.winnerWins = winnerWins;

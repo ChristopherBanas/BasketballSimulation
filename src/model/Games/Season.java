@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Desc: Class for playoff information
+ * Desc: Class for season information
  * Author: Christopher Banas
  */
 public class Season {

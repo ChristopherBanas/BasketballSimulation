@@ -1,7 +1,4 @@
-package model.Autogeneration.data;
-
-import java.util.ArrayList;
-import java.util.List;
+package model.Autogeneration.NameOptions;
 
 /**
  * Desc: Class for holding the list of all team names

@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Desc: Class for holding the sets of all valid user inputs for creating a team
+ * Author: Christopher Banas
+ */
 public class TeamInputs {
 
     public static Set<String> lakersSet = new HashSet<>(Arrays.asList("lakers", "Lakers", "l", "L",

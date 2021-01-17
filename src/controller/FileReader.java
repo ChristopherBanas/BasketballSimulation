@@ -9,7 +9,6 @@ import model.Player.Type;
 import model.Team.Coach;
 import model.Team.Team;
 
-
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,15 +16,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Desc: Reads through and error checks a given file to build teams out of it
+ * Author: Christopher Banas
+ */
 public class FileReader {
 
+    /** List of teams */
     private ArrayList<Team> teamList;
+    /** Current team that is being modified */
     private Team currentTeam;
 
+    /**
+     * Constructor for FileReader
+     */
     public FileReader(){
         this.teamList = new ArrayList<>();
     }
 
+    /**
+     * Prompts the user what file they would like to choose
+     * @return Full path to file in string format
+     */
     public String chooseFile(){
         FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
         dialog.setMode(FileDialog.LOAD);
@@ -33,6 +45,11 @@ public class FileReader {
         return dialog.getDirectory()+dialog.getFile();
     }
 
+    /**
+     * Parses through a line and ensures it's format is proper
+     * @param line Line to be error checked
+     * @return If line is proper or not
+     */
     public boolean properLineFormat(ArrayList<String> line){
         boolean proper = false; //assume wrong
         switch (line.get(0)){
@@ -90,21 +107,29 @@ public class FileReader {
         return proper;
     }
 
+    /**
+     * Parses through a file and ensures the overall format is proper
+     * @param file File to be error checked
+     * @return If file is proper or not
+     */
     public boolean properFileFormat(Scanner file){
         int count = 0;
         int lineNumber = 0;
         boolean proper = false;
+        boolean openTeam = false;
         while (file.hasNextLine()){
             String line = file.nextLine();
             lineNumber++;
             ArrayList<String> lineList = new ArrayList<>(Arrays.asList(line.split(",")));
-            if(properLineFormat(lineList)){
+            if(properLineFormat(lineList)){ //if line is proper
                 String item = lineList.get(0);
                 count++;
                 if(item.equals("START_TEAM")){
                     count = 0;
+                    openTeam = true;
                 } else if(item.equals("END_TEAM")){
                     if(count == 12){
+                        openTeam = false;
                         proper = true;
                     } else{
                         System.out.printf("Error on line %s, incorrect team information%n", lineNumber);
@@ -125,12 +150,23 @@ public class FileReader {
                         System.out.printf("Error on line %s, should be Player%n", lineNumber);
                         return false;
                     }
+                } else{ //unknown error
+                    System.out.printf("Error on line %s%n", lineNumber);
+                    return false;
                 }
             }
+        }
+        if(openTeam){ //if END_TEAM was not added when creating a team
+            System.out.println("Error: Open team in file, insert END_TEAM");
+            return false;
         }
         return proper;
     }
 
+    /**
+     * Parses through a file and builds a league from given teams
+     * @param file File to be parsed through
+     */
     public void buildLeague(Scanner file){
         while (file.hasNextLine()){
             String line = file.nextLine();
@@ -160,6 +196,10 @@ public class FileReader {
         }
     }
 
+    /**
+     * Calls on helper methods to go through a file, error check it, and build teams from it
+     * @param filePath Path to file that will be read
+     */
     public void parseFile(String filePath){
         try (Scanner teamFile = new Scanner(new File(filePath))){
             if(properFileFormat(teamFile)){
@@ -176,6 +216,10 @@ public class FileReader {
         }
     }
 
+    /**
+     * Returns teams that were created in file
+     * @return List of teams
+     */
     public ArrayList<Team> run() {
         String filePath = chooseFile();
         parseFile(filePath);

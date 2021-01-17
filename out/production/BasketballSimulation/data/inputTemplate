@@ -6,7 +6,7 @@ Player,Anthony Davis,29,Paint_beast,Superstar,Power_forward
 Player,Dennis Shroder,26,Offensive_playmaker,Starter,Point_guard
 Player,KCP,30,Pure_shooter,Starter,Shooting_guard
 Player,Marc Gasol,35,Inside_defender,Starter,Center
-Player,Montrez Harrell,27,Energetic_rebounder,Sixth_man,Center
+PlayeR,Montrez Harrell,27,Energetic_rebounder,Sixth_man,Center
 Player,Kyle Kuzma,22,Pure_shooter,Bench,Small_forward
 Player,Alex Caruso,25,Defensive_playmaker,Bench,Point_guard
 Player,Wesley Matthews,34,Pure_shooter,Bench,Shooting_guard
@@ -48,5 +48,5 @@ Player,Deandre Jordan,33,Energetic_rebounder,Starter,Center
 Player,Spencer Dinwiddie,29,Offensive_playmaker,Sixth_man,Point_guard
 Player,Jeff Green,35,Perimeter_defender,Bench,Power_forward
 Player,Bruce Brown,33,Playmaker,Bench,Shooting_guard
-Playe,TLC,25,Pure_shooter,Bench,Small_forward
+Player,TLC,25,Pure_shooter,Bench,Small_forward
 END_TEAM

@@ -1,6 +1,6 @@
 package model.Autogeneration;
 
-import model.Autogeneration.data.TeamList;
+import model.Autogeneration.NameOptions.TeamList;
 import model.Team.Coach;
 import model.Player.Player;
 import model.Player.Position;
