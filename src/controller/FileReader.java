@@ -3,6 +3,9 @@ package controller;
 import controller.ValidInputs.PlayerInputs;
 import controller.ValidInputs.TeamInputs;
 import model.Player.Player;
+import model.Player.Position;
+import model.Player.Role;
+import model.Player.Type;
 import model.Team.Coach;
 import model.Team.Team;
 
@@ -142,8 +145,16 @@ public class FileReader {
                     this.currentTeam.setCoach(coach);
                     break;
                 case "Player":
+                    String name = lineList.get(1);
+                    int age = Integer.parseInt(lineList.get(2));
+                    Type type = Type.valueOf(lineList.get(3));
+                    Role role = Role.valueOf(lineList.get(4));
+                    Position position = Position.valueOf(lineList.get(5));
+                    Player player = new Player(name,age,type,role,position);
+                    this.currentTeam.addPlayer(player);
                     break;
                 case "END_TEAM":
+                    this.teamList.add(this.currentTeam);
                     break;
             }
         }
@@ -152,7 +163,7 @@ public class FileReader {
     public void parseFile(String filePath){
         try (Scanner teamFile = new Scanner(new File(filePath))){
             if(properFileFormat(teamFile)){
-                buildLeague(teamFile);
+                buildLeague(new Scanner(new File(filePath)));
             } else{
                 System.out.println("");
                 System.out.println("Fix file and rerun program");

@@ -24,3 +24,29 @@ Player,Dwight Howard,36,Energetic_rebounder,Bench,Center
 Player,Matisse Thybulle,20,Perimeter_defender,Bench,Small_forward
 Player,Tyrese Maxey,20,Playmaker,Bench,Point_guard
 END_TEAM
+START_TEAM
+Team,Warriors,5
+Coach,Steve Kerr,60
+Player,Stephen Curry,30,Offensive_superstar,Superstar,Point_guard
+Player,Klay Thompson,30,Three_and_D,Star,Shooting_guard
+Player,Andrew Wiggins,25,Three_level_scorer,Starter,Small_forward
+Player,Draymond Green,31,Defensive_playmaker,Star,Power_forward
+Player,James Wiseman,20,Energetic_rebounder,Starter,Center
+Player,Kelly Oubre,24,Three_level_scorer,Sixth_man,Small_forward
+Player,Brad Wannamaker,30,Playmaker,Bench,Point_guard
+Player,Eric Pascall,22,Stretch_big,Bench,Power_forward
+Player,Kevon Looney,24,Inside_defender,Bench,Center
+END_TEAM
+START_TEAM
+Team,Celtics,17
+Coach,Brad Stevens,46
+Player,Kevin Durant,33,Offensive_superstar,Superstar,Small_forward
+Player,James Harden,31,Offensive_superstar,Superstar,Shooting_guard
+Player,Kyrie Irving,30,Offensive_superstar,Star,Point_guard
+Player,Joe Harris,25,Pure_shooter,Starter,Power_forward
+Player,Deandre Jordan,33,Energetic_rebounder,Starter,Center
+Player,Spencer Dinwiddie,29,Offensive_playmaker,Sixth_man,Point_guard
+Player,Jeff Green,35,Perimeter_defender,Bench,Power_forward
+Player,Bruce Brown,33,Playmaker,Bench,Shooting_guard
+Player,TLC,25,Pure_shooter,Bench,Small_forward
+END_TEAM

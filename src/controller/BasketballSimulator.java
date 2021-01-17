@@ -46,7 +46,7 @@ public class BasketballSimulator {
      */
     public void startFromFile(){
         FileReader fileReader = new FileReader();
-        fileReader.run();
+        this.teamList = fileReader.run();
     }
 
     /**
@@ -56,15 +56,15 @@ public class BasketballSimulator {
         for(int i = 0; i<4; i++){ //generate 4 teams
             this.teamList.add(teamGenerator.createTeam());
         }
-        for(Team team : this.teamList){
-            System.out.println(team);
-        }
     }
 
     /**
      * Prompts the user which team they would like to monitor
      */
     public void chooseTeam(){
+        for(Team team : this.teamList){
+            System.out.println(team);
+        }
         Scanner scanner = new Scanner(System.in);
         String input = "";
         while(!TeamInputs.lakersSet.contains(input) && !TeamInputs.warriorsSet.contains(input) &&
