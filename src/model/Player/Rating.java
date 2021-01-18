@@ -81,7 +81,7 @@ public class Rating {
             case Lockdown_defender:
                 generateFields(6, 6, 6, 0, 0, 7);
                 break;
-            case Two_war_superstar:
+            case Two_way_superstar:
                 generateFields(3, 3, 6, 2, 2, 8);
                 break;
             case God:

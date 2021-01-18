@@ -1,5 +1,6 @@
 # BasketballSimulation
-Java project that will generate basketball players and allow the user to pick their team and simulate games across multiple seasons.
+Java project that generates basketball players and allows the user to pick 
+their team and simulate games across multiple seasons.
 
 ## System Requirements / Installation
 - Minimum Java 8 installed on system
@@ -25,9 +26,9 @@ Java project that will generate basketball players and allow the user to pick th
 
 ## Possible Improvements
 - Add more teams to league
+- Adjust ratings for a wider range of outcomes
 - Add championship MVP
-- Player retirement
-- Coach retirement
+- Player and coach retirement
 - New players entering league
 - Ratings change as players ages
 - Free agent pool with ability to add & drop players

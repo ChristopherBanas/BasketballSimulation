@@ -23,7 +23,7 @@ public class GameSimulation {
     /** Affect's how many two are made (higher means less) */
     private final double INSIDE_FACTOR = 7.5;
     /** Affect's how many rebounds are grabbed (higher means less) */
-    private final double REBOUND_FACTOR = 13;
+    private final double REBOUND_FACTOR = 10.0;
     /** Affect's how many assists are made (higher means less) */
     private final double ASSIST_FACTOR = 10.0;
 
@@ -50,10 +50,10 @@ public class GameSimulation {
                 ROLE_FACTOR = 1;
                 break;
             case Starter:
-                ROLE_FACTOR = .85;
+                ROLE_FACTOR = .80;
                 break;
             case Sixth_man:
-                ROLE_FACTOR = .70;
+                ROLE_FACTOR = .75;
                 break;
             case Bench:
                 ROLE_FACTOR = .65;

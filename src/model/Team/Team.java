@@ -176,7 +176,8 @@ public class Team {
             this.type = TeamType.God_team;
         } else if(numOfSuper >= 2 && numOfStar >= 1){ //2+ superstars and 1+ star
             this.type = TeamType.Super_team;
-        } else if(numOfSuper <= 2 && numOfSuper > 0 && numOfStar <= 1){ //1-2 superstars and 0-1 stars
+        } else if((numOfSuper == 1 || numOfSuper == 2) &&
+                (numOfStar == 0 || numOfStar == 1 || numOfStar == 2)){ //1-2 superstars and 0-1 stars
             this.type = TeamType.Contending_team;
         } else if(numOfStar == 1 || numOfStar == 2){ //1 or 2 stars
             this.type = TeamType.Playoff_team;
@@ -218,6 +219,10 @@ public class Team {
         this.updateType();
     }
 
+    /**
+     * Add multiple players to a team
+     * @param players Arraylist of players to be added
+     */
     public void addMultiplePlayers(ArrayList<Player> players){
         for(Player player : players){
             addPlayer(player);

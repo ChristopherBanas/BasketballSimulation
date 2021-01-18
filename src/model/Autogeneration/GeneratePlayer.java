@@ -77,7 +77,7 @@ public class GeneratePlayer {
             case 8:
                 return Type.Lockdown_defender;
             case 9:
-                return Type.Two_war_superstar;
+                return Type.Two_way_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -115,7 +115,7 @@ public class GeneratePlayer {
             case 8:
                 return Type.Lockdown_defender;
             case 9:
-                return Type.Two_war_superstar;
+                return Type.Two_way_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }
@@ -153,7 +153,7 @@ public class GeneratePlayer {
             case 8:
                 return Type.Lockdown_defender;
             case 9:
-                return Type.Two_war_superstar;
+                return Type.Two_way_superstar;
             case 10:
                 return Type.Offensive_superstar;
             default:
@@ -195,7 +195,7 @@ public class GeneratePlayer {
             case 9:
                 return Type.Lockdown_defender;
             case 10:
-                return Type.Two_war_superstar;
+                return Type.Two_way_superstar;
             default:
                 throw new IllegalStateException("Unexpected value: " + random);
         }

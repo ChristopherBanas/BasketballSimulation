@@ -53,7 +53,7 @@ class GameSimulationTest {
         Coach frankVogel = new Coach("Frank Vogel", 60);
         Player lebronJames = new Player("Lebron James", 36, Type.Balanced_superstar,
                 Role.Superstar, Position.Small_forward);
-        Player anthonyDavis = new Player("Anthony Davis", 28, Type.Two_war_superstar,
+        Player anthonyDavis = new Player("Anthony Davis", 28, Type.Two_way_superstar,
                 Role.Superstar, Position.Power_forward);
         Player dennisShroder = new Player("Dennis Shroder", 27, Type.Offensive_playmaker,
                 Role.Starter, Position.Point_guard);
@@ -89,7 +89,6 @@ class GameSimulationTest {
 
     @Test
     void runSimulation() {
-        System.out.println(game.getTeam2().toString());
-        System.out.println(game.getTeam1());
+        game.printTotalResults();
     }
 }

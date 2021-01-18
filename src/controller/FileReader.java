@@ -12,9 +12,7 @@ import model.Team.Team;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Desc: Reads through and error checks a given file to build teams out of it
@@ -221,6 +219,13 @@ public class FileReader {
      * @return List of teams
      */
     public ArrayList<Team> run() {
+        System.out.println("");
+        System.out.println("You will be prompted to select a text file containing team information");
+        System.out.println("An example file is located in BasketballSimulation/src/data/inputExample");
+        System.out.println("");
+        System.out.println("Enter any key to continue");
+        System.out.print("> ");
+        new Scanner(System.in).nextLine();
         String filePath = chooseFile();
         parseFile(filePath);
         return this.teamList;
