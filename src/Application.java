@@ -39,6 +39,6 @@ public class Application {
                 System.out.println("");
             }
         }
-        new BasketballSimulator(input);
+        new BasketballSimulator(input); //pass operation to Controller
     }
 }

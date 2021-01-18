@@ -1,7 +1,7 @@
 package model.Player;
 
 /**
- * Desc: Enum for what type a player is
+ * Desc: Enum for player type
  * Author: Christopher Banas
  */
 public enum Type {Three_and_D, All_around, Offensive_playmaker, Defensive_playmaker, Playmaker,

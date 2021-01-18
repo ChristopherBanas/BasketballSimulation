@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Desc: Class for holding the sets of all valid user inputs for creating a player
+ * Desc: Class for holding sets of all valid user inputs for creating a player
  * Author: Christopher Banas
  */
 public class PlayerInputs {

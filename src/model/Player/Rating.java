@@ -3,7 +3,7 @@ package model.Player;
 import java.util.Objects;
 
 /**
- * Desc: Class for player rating information
+ * Desc: Class for player rating information and rating generation
  * Author: Christopher Banas
  */
 public class Rating {

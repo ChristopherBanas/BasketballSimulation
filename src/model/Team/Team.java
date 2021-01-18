@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Desc: Class for team information
+ * Desc: Class for storing team information
  * Author: Christopher Banas
  */
 public class Team {

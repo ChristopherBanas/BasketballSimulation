@@ -5,7 +5,7 @@ import model.Player.Player;
 import model.Player.Role;
 
 /**
- * Desc: Simulates a game by getting each player's individual stat's and adding them
+ * Desc: Simulates a game by getting each player's individual stat's and adding them to produce team totals
  * Author: Christopher Banas
  */
 public class GameSimulation {

@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 /**
- * Desc: Class for player generation
+ * Desc: Class for random player generation
  * Author: Christopher Banas
  */
 public class GeneratePlayer {
