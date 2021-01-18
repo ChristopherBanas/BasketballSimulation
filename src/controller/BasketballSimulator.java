@@ -144,7 +144,7 @@ public class BasketballSimulator {
         Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
         Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
         while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
-            System.out.printf("Would you like to see box scores from your team's (%s) schedule?%n",
+            System.out.printf("Would you like to see box scores from your team's (%s) schedule (yes/no)?%n",
                     this.userTeam.getName());
             System.out.print("> ");
             input = scanner.nextLine();
@@ -171,7 +171,7 @@ public class BasketballSimulator {
         Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
         Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
         while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
-            System.out.println("Would you like to simulate another season?");
+            System.out.println("Would you like to simulate another season (yes/no)?");
             System.out.print("> ");
             input = scanner.nextLine();
             if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
@@ -197,7 +197,7 @@ public class BasketballSimulator {
         Set<String> yesInputSet = new HashSet<>(Arrays.asList("yes", "y", "Yes", "Y"));
         Set<String> noInputSet = new HashSet<>(Arrays.asList("no", "No", "n", "N"));
         while(!yesInputSet.contains(input) && !noInputSet.contains(input)){
-            System.out.println("Would you like to monitor a different team this season?");
+            System.out.println("Would you like to monitor a different team this season (yes/no)?");
             System.out.print("> ");
             input = scanner.nextLine();
             if(!yesInputSet.contains(input) && !noInputSet.contains(input)){
