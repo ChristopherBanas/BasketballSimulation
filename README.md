@@ -3,7 +3,7 @@ Java project that generates basketball players and allows the user to pick
 their team and simulate games across multiple seasons.
 
 ## System Requirements / Installation
-- Minimum Java 8 installed on system
+- Minimum Java 8 JDK installed on system
 
 ## Running Project
 - Command line execution
