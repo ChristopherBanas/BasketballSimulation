@@ -5,10 +5,13 @@ their team and simulate games across multiple seasons.
 ## Images
 Startup
 ![startup](images/startup.png)
+
 Roster example
 ![roster](images/roster.png)
+
 Season result
 ![result](images/seasonResult.png)
+
 Game example (LAL x PHI)
 ![lakers](images/lakeGame.png)
 ![sixers](images/sixerGame.png)
