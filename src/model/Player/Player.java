@@ -9,7 +9,7 @@ import java.util.Objects;
  * Author: Christopher Banas
  */
 public class Player {
-
+    
     /** Name of player */
     private String name;
     /** Age of player */
